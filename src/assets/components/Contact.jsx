@@ -6,7 +6,7 @@ export default function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm("service_5p94hoi", "template_dvbvovi", e.target, "public_6yPpb9KyXGH9b0z4z")
+    emailjs.sendForm("service_5p94hoi", "template_dvbvovi", e.target, "6yPpb9KyXGH9b0z4z")
       .then((result) => {
         console.log(result.text);
       }, (error) => {
