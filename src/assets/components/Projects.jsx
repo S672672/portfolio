@@ -10,9 +10,9 @@ export default function Projects({ projects }) {
                         <div key={index} className="bg-gray-100 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                             <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
                             <div className="p-6">
-                                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                                <h3 className="text-2xl font-bold mb-2 text-blue-700">{project.title}</h3>
                                 <p className="text-gray-600 mb-4">{project.description}</p>
-                                <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-secondary font-bold hover:underline">
+                                <a href={project.linkk} target="_blank" rel="noopener noreferrer" className="text-secondary font-bold hover:underline hover:text-blue-400">
                                     View Project
                                 </a>
                             </div>
