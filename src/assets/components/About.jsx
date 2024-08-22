@@ -21,7 +21,7 @@ export default function About() {
                                 <p className="text-gray-600">Years of Experience</p>
                             </div>
                             <div className="text-center p-4">
-                                <h4 className="text-3xl font-bold text-secondary text-blue-400">20+</h4>
+                                <h4 className="text-3xl font-bold text-secondary text-blue-400">10+</h4>
                                 <p className="text-gray-600">Completed Projects</p>
                             </div>
                             {/* <div className="text-center p-4">
