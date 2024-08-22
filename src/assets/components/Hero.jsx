@@ -6,7 +6,7 @@ export default function Hero({ title, subtitle, buttonText }) {
         <section 
             id="home" 
             className="relative bg-cover bg-center min-h-screen text-white flex items-center justify-center" 
-            style={{ backgroundImage: "url('/src/assets/pictures/forbg.jpeg')" }}
+            style={{ backgroundImage: "url('./forbg.jpeg')" }}
         >
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
             <div className="relative z-10 text-center px-6">
