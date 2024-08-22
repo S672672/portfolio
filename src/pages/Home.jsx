@@ -10,7 +10,7 @@ import SocialMedia from '../assets/components/SocialMedia';
 export default function Home() {
     const socialLinks = {
         //facebook: "https://facebook.com/your-profile",
-        linkedin: "www.linkedin.com/in/smith-b-40160a25a",
+        linkedin: "https://www.linkedin.com/in/smith-b-40160a25a/",
         twitter: "https://x.com/RedHorseAatman1?t=KDk5-1q7JBusyn2cKJc3HA&s=09",
         instagram: "https://instagram.com/ees_meeth",
         github: "https://github.com/s672672",
