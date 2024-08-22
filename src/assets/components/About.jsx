@@ -7,7 +7,7 @@ export default function About() {
                 <h2 className="text-4xl font-bold text-center mb-12">About Me</h2>
                 <div className="flex flex-col lg:flex-row items-center space-y-8 lg:space-y-0 lg:space-x-12">
                     <div className="lg:w-1/3 text-center">
-                        <img src='./src/assets/Pictures/smith.png' alt="Profile" className="rounded-full w-48 h-48 mx-auto mb-6" type="image/png" />
+                        <img src='./src/assets/pictures/smith.png' alt="Profile" className="rounded-full w-48 h-48 mx-auto mb-6" type="image/png" />
                         <h3 className="text-2xl font-semibold">Smith Bhattarai</h3>
                         <p className="text-gray-600">Software Engineer</p>
                     </div>

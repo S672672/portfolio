@@ -18,12 +18,12 @@ export default function Home() {
     return (
         <>
             <Navbar />
+            <Hero title="Welcome, I’m Smith Bhattarai" subtitle="Innovating through software to make a difference." buttonText="View Projects" />
             <About />
             <Skills skills={['JavaScript','Python','React', 'Node.js', 'Tailwind CSS', 'Express.js', 'MongoDB']} />
-            <Hero title="Hello, I'm Smith Bhattarai" subtitle="A Software Engineer" buttonText="View Projects" />
             <Projects projects={[
-                { title: 'Expense Tracker', description: 'It is a web application in which users can track all the expenses and can manage their expenses accordingly', image: './src/assets/Pictures/expensetracker.png',linkk:'https://github.com/S672672/Expense-Tracker' },
-                { title: 'Ip address tracker', description: 'It is a web application which can track the location through the ip address', image: './src/assets/Pictures/ipaddresstracker.png',linkk:'https://github.com/S672672/IpAddressTracker-using-react' }
+                { title: 'Expense Tracker', description: 'It is a web application in which users can track all the expenses and can manage their expenses accordingly', image: './src/assets/pictures/expensetracker.png',linkk:'https://github.com/S672672/Expense-Tracker' },
+                { title: 'Ip address tracker', description: 'It is a web application which can track the location through the ip address', image: './src/assets/pictures/ipaddresstracker.png',linkk:'https://github.com/S672672/IpAddressTracker-using-react' }
             ]} />
             <Contact />
             <SocialMedia links={socialLinks} />
