@@ -27,6 +27,7 @@ export default function Home() {
                 {title:'Chess Game' ,description:'It is a chess game which i built for my practice,although it is not perfect but learnt so much from it',image:'./chess.jpeg',linkk:'https://github.com/S672672/Let-s-play-chess'},
                 {title:'youtube video downloader' ,description:'A youtube video downloader web app.It has a feature of downloading videos in different quality.It will use the highest quality as default.',image:'./youtube.png',linkk:'https://github.com/S672672/YouTube-video-downloader-'},
                 {title:'Dictionary' ,description:'It is a dictionary app.It is a bit different from others in output type.',image:'./dict.png',linkk:'https://github.com/S672672/Dictionary-using-react'},
+                {title:'Inventory Tracking' ,description:'It is a web app for a mart in which we can track the available items in the mart.',image:'./inventory.png',linkk:'https://github.com/S672672/Inventory_tracking'}
             ]} />
             <Contact />
             <SocialMedia links={socialLinks} />
