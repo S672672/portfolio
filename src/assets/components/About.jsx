@@ -38,7 +38,7 @@ export default function About() {
                   10+
                 </h4> */}
                 <a
-                  href="https://github.com/S672672"
+                  href="https://github.com/S672672?tab=repositories"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-black-600 hover:text-blue-800"
