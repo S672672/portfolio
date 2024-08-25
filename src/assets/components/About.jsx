@@ -15,8 +15,8 @@ export default function About() {
               className="rounded-full w-48 h-48 mx-auto mb-6 object-cover"
               type="image/png"
             />
-            <h3 className="text-2xl font-semibold">Smith Bhattarai</h3>
-            <p className="text-gray-600">Software Engineer</p>
+            <h3 className="text-2xl font-bold">Smith Bhattarai</h3>
+            <p className="text-gray-700">Software Engineer</p>
           </div>
           <div className="lg:w-2/3 text-left">
             <p className="text-lg text-gray-700 mb-6">
