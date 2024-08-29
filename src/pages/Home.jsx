@@ -6,6 +6,7 @@ import Projects from '../assets/components/Projects';
 import About from '../assets/components/About';
 import Skills from '../assets/components/Skills';
 import SocialMedia from '../assets/components/SocialMedia';
+import Creation from '../assets/components/Creation';
 
 export default function Home() {
     const socialLinks = {
@@ -31,6 +32,7 @@ export default function Home() {
             ]} />
             <Contact />
             <SocialMedia links={socialLinks} />
+            <Creation />
         </>
     );
 }
