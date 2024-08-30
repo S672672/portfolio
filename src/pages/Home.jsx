@@ -19,7 +19,7 @@ export default function Home() {
     return (
         <>
             <Navbar />
-            <Hero title="Welcome, I’m Smith Bhattarai" subtitle="Innovating through software to make a difference." buttonText="View Projects" />
+            <Hero title="Namaste, I’m Smith Bhattarai" subtitle="Innovating through software to make a difference." buttonText="View Projects" />
             <About />
             <Skills skills={['JavaScript','Python','React', 'Node.js', 'Tailwind CSS', 'Express.js', 'MongoDB']} />
             <Projects projects={[

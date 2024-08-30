@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        ruge: ['Ruge Boogie', 'cursive'],
+        jaini : ['Jaini']
+      },
+    },
   },
   plugins: [],
 }
