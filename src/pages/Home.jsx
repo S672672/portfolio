@@ -24,7 +24,7 @@ export default function Home() {
             <About />
             <Skills skills={['JavaScript','Python','React', 'Node.js', 'Tailwind CSS', 'Express.js', 'MongoDB']} />
             <Projects projects={[
-                { title: 'Expense Tracker', description: 'It is a web application in which users can track all the expenses and can manage their expenses accordingly', image: './expensetracker.png',linkk:'https://github.com/S672672/Expense-Tracker' },
+                { title: 'spend sense', description: 'It is a web application in which users can track all the expenses and can manage their expenses accordingly', image: './expensetracker.png',linkk:'https://github.com/S672672/Expense-Tracker' },
                 { title: 'Ip address tracker', description: 'It is a web application which can track the location through the ip address', image: './ipaddresstracker.png',linkk:'https://github.com/S672672/IpAddressTracker-using-react' },
                 {title:'Chess Game' ,description:'It is a chess game which i built for my practice,although it is not perfect but learnt so much from it',image:'./chess.jpeg',linkk:'https://github.com/S672672/Let-s-play-chess'},
                 {title:'youtube video downloader' ,description:'A youtube video downloader web app.It has a feature of downloading videos in different quality.It will use the highest quality as default.',image:'./youtube.png',linkk:'https://github.com/S672672/YouTube-video-downloader-'},
