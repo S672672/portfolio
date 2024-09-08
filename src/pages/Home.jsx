@@ -22,7 +22,7 @@ export default function Home() {
             <Navbar />
             <Hero title="Namaste, I’m Smith Bhattarai" subtitle="Innovating through software to make a difference." buttonText="View Projects" />
             <About />
-            <Skills skills={['JavaScript','Python','React', 'Node.js', 'Tailwind CSS', 'Express.js', 'MongoDB']} />
+            <Skills skills={['JavaScript','Python','React', 'Node.js', 'Tailwind CSS', 'Express.js', 'MongoDB','git','github']} />
             <Projects projects={[
                 { title: 'spend sense', description: 'It is a web application in which users can track all the expenses and can manage their expenses accordingly', image: './expensetracker.png',linkk:'https://github.com/S672672/Expense-Tracker' },
                 { title: 'Ip address tracker', description: 'It is a web application which can track the location through the ip address', image: './ipaddresstracker.png',linkk:'https://github.com/S672672/IpAddressTracker-using-react' },

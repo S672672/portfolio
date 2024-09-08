@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaReact, FaNodeJs, FaJsSquare } from 'react-icons/fa';
-import { SiPython, SiTailwindcss, SiExpress, SiMongodb } from 'react-icons/si';
+import { SiPython, SiTailwindcss, SiExpress, SiMongodb,SiGit,SiGithub } from 'react-icons/si';
 
 const iconMap = {
     JavaScript: <FaJsSquare />,
@@ -10,6 +10,8 @@ const iconMap = {
     'Tailwind CSS': <SiTailwindcss />,
     'Express.js': <SiExpress />,
     MongoDB: <SiMongodb />,
+    git:<SiGit />,
+    github:<SiGithub />
 };
 
 export default function Skills({ skills }) {
