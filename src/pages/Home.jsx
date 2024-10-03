@@ -30,6 +30,7 @@ export default function Home() {
                 {title:'youtube video downloader' ,description:'A web application that allows users to download YouTube videos in various qualities, with the highest available quality set as default. Highlights expertise in working with media data processing.',image:'./youtube.png',linkk:'https://github.com/S672672/YouTube-video-downloader-'},
                 {title:'Dictionary' ,description:'A modern dictionary app that stands out with its unique output format, showcasing an innovative approach to data presentation.',image:'./dict.png',linkk:'https://github.com/S672672/Dictionary-using-react'},
                 {title:'Inventory Tracking' ,description:'A web application for grocery mart inventory management, helping to track stock availability efficiently. Built to streamline the operational workflow.',image:'./inventory.png',linkk:'https://github.com/S672672/Inventory_tracking'},
+                {title:'Pet Adoption',description:'A full-stack MERN application for pet adoption, allowing users to give away or adopt pets with profile submissions, including photos and descriptions. Features secure authentication, easy request management, form validation, and photo uploads for a smooth user experience.',image:'./PetAdopt.png',link:'https://github.com/S672672/PVVVI.git'}
             ]} />
             <Viewall />
             <Contact />

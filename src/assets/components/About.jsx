@@ -17,7 +17,7 @@ export default function About() {
             />
             <h3 className="text-3xl font-bold">Smith Bhattarai</h3>
             <p className="text-gray-700 text-2xl">Software Engineer</p>
-            <p className="text-blue-700 underline cursor-pointer text-bold text-xl">Resume</p>
+            <p className="text-blue-700 underline cursor-pointer text-bold text-xl">My Resume</p>
           </div>
           <div className="lg:w-2/3 text-left">
             <p className="text-lg text-gray-700 mb-6">

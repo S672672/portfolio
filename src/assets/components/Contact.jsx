@@ -33,7 +33,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-8 bg-gray-800 text-white min-h-screen flex flex-col justify-between">
+    <section id="contact" className="py-8 bg-gray-800 text-white flex flex-col justify-between">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8">Get in Touch</h2>
         <form className="max-w-lg mx-auto" onSubmit={onSubmit}>
