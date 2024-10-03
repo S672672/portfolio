@@ -24,12 +24,12 @@ export default function Home() {
             <About />
             <Skills skills={['JavaScript','Python','React', 'Node.js', 'Tailwind CSS', 'Express.js', 'MongoDB','git','github']} />
             <Projects projects={[
-                { title: 'spend sense', description: 'It is a web application in which users can track all the expenses and can manage their expenses accordingly', image: './expensetracker.png',linkk:'https://github.com/S672672/Expense-Tracker' },
-                { title: 'Ip address tracker', description: 'It is a web application which can track the location through the ip address', image: './ipaddresstracker.png',linkk:'https://github.com/S672672/IpAddressTracker-using-react' },
-                {title:'Chess Game' ,description:'It is a chess game which i built for my practice,although it is not perfect but learnt so much from it',image:'./chess.jpeg',linkk:'https://github.com/S672672/Let-s-play-chess'},
-                {title:'youtube video downloader' ,description:'A youtube video downloader web app.It has a feature of downloading videos in different quality.It will use the highest quality as default.',image:'./youtube.png',linkk:'https://github.com/S672672/YouTube-video-downloader-'},
-                {title:'Dictionary' ,description:'It is a dictionary app.It is a bit different from others in output type.',image:'./dict.png',linkk:'https://github.com/S672672/Dictionary-using-react'},
-                {title:'Inventory Tracking' ,description:'It is a web app for a mart in which we can track the available items in the mart.',image:'./inventory.png',linkk:'https://github.com/S672672/Inventory_tracking'},
+                { title: 'spend sense', description: 'A comprehensive web application enabling users to track and manage their expenses effectively. Designed with user-friendly features for seamless financial oversight.', image: './expensetracker.png',linkk:'https://github.com/S672672/Expense-Tracker' },
+                { title: 'Ip address tracker', description: ' A web application that pinpoints geographical locations based on IP addresses, built to demonstrate mastery of APIs and geolocation services', image: './ipaddresstracker.png',linkk:'https://github.com/S672672/IpAddressTracker-using-react' },
+                {title:'Chess Game' ,description:'A personal project for practicing complex logic, resulting in a functional chess game. Though not perfect, it showcases problem-solving skills in game development.',image:'./chess.jpeg',linkk:'https://github.com/S672672/Let-s-play-chess'},
+                {title:'youtube video downloader' ,description:'A web application that allows users to download YouTube videos in various qualities, with the highest available quality set as default. Highlights expertise in working with media data processing.',image:'./youtube.png',linkk:'https://github.com/S672672/YouTube-video-downloader-'},
+                {title:'Dictionary' ,description:'A modern dictionary app that stands out with its unique output format, showcasing an innovative approach to data presentation.',image:'./dict.png',linkk:'https://github.com/S672672/Dictionary-using-react'},
+                {title:'Inventory Tracking' ,description:'A web application for grocery mart inventory management, helping to track stock availability efficiently. Built to streamline the operational workflow.',image:'./inventory.png',linkk:'https://github.com/S672672/Inventory_tracking'},
             ]} />
             <Viewall />
             <Contact />
