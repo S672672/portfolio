@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function About() {
+  const PdfUrl = `./Smith'N Resume.pdf`
   return (
     <section id="about" className="py-20 bg-gray-100">
       <div className="container mx-auto px-6">
@@ -17,7 +18,9 @@ export default function About() {
             />
             <h3 className="text-3xl font-bold">Smith Bhattarai</h3>
             <p className="text-gray-700 text-2xl">Software Engineer</p>
+            <a href ={PdfUrl} target="_blank" rel="noopener noreferrer">
             <p className="text-blue-700 underline cursor-pointer text-bold text-xl">My Resume</p>
+            </a>
           </div>
           <div className="lg:w-2/3 text-left">
             <p className="text-lg text-gray-700 mb-6">
