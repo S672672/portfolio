@@ -7,4 +7,9 @@ export default defineConfig({
   build: {
     outDir: 'dist',
   },
+  server:{
+    headers: {
+      'Content-Type': 'javascript',
+    },
+  }
 });
