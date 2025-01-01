@@ -1,13 +1,39 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState("");
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
+
+    useEffect(() => {
+        const sections = document.querySelectorAll("section");
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        console.log("Intersecting section:", entry.target.id);
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
+
+        return () => {
+            sections.forEach((section) => {
+                observer.unobserve(section);
+            });
+        };
+    }, []);
 
     return (
         <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 p-4 shadow-lg z-50">
@@ -16,7 +42,7 @@ export default function Navbar() {
                     Smith Bhattarai
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg blur-md opacity-30 -z-10"></div>
                 </h1>
-                
+
                 {/* Hamburger Icon for Mobile */}
                 <div className="lg:hidden text-white text-3xl cursor-pointer" onClick={toggleMenu}>
                     {isOpen ? <FaTimes /> : <FaBars />}
@@ -24,11 +50,13 @@ export default function Navbar() {
 
                 {/* Desktop Menu */}
                 <ul className="hidden lg:flex space-x-6">
-                    {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+                    {["Home", "About","Skills", "Projects", "Contact"].map((item) => (
                         <motion.li
                             key={item}
-                            className="relative text-white font-bold hover:text-yellow-300"
-                            whileHover={{ scale: 1.1, color: "#FBBF24" }}
+                            className={`relative font-bold ${
+                                activeSection === item.toLowerCase() ? "text-yellow-300" : "text-white"
+                            }`}
+                            whileHover={{ scale: 1.1 }}
                             transition={{ duration: 0.3 }}
                         >
                             <a href={`#${item.toLowerCase()}`}>
@@ -36,18 +64,21 @@ export default function Navbar() {
                                 <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-600 rounded-lg blur-md opacity-20 -z-10"></div>
                             </a>
                         </motion.li>
-                    ))}
+                    ))
+                    }
                 </ul>
 
                 {/* Mobile Dropdown Menu */}
                 {isOpen && (
                     <div className="lg:hidden absolute top-16 left-0 w-full bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 p-4 shadow-lg">
                         <ul className="flex flex-col space-y-4">
-                            {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+                            {["Home", "About","Skills", "Projects", "Contact"].map((item) => (
                                 <motion.li
                                     key={item}
-                                    className="relative text-white font-bold text-center hover:text-yellow-300"
-                                    whileHover={{ scale: 1.1, color: "#FBBF24" }}
+                                    className={`relative font-bold text-center ${
+                                        activeSection === item.toLowerCase() ? "text-yellow-300" : "text-white"
+                                    }`}
+                                    whileHover={{ scale: 1.1 }}
                                     transition={{ duration: 0.3 }}
                                 >
                                     <a href={`#${item.toLowerCase()}`} onClick={toggleMenu}>

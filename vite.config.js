@@ -5,11 +5,11 @@ export default defineConfig({
   plugins: [react()],
   base:"/",
   build: {
-    outDir: 'dist',
+    // outDir: 'dist',
   },
   server:{
-    headers: {
-      'Content-Type': 'javascript',
+     headers: {
+      // 'Content-Type': 'application/javascript',
     },
   }
 });
