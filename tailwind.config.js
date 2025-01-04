@@ -14,6 +14,19 @@ export default {
       },
     },
   },
+  theme: {
+    extend: {
+      animation: {
+        swing: "swing 1.5s infinite",
+      },
+      keyframes: {
+        swing: {
+          "0%, 100%": { transform: "rotate(-10deg)" },
+          "50%": { transform: "rotate(10deg)" },
+        },
+      },
+    },
+  },
   plugins: [],
 }
 
