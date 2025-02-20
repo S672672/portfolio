@@ -36,7 +36,7 @@ export default function Skills({ skills }) {
                     <h2 className="text-4xl font-bold text-white mb-12 underline" data-aos="fade-up">MY SKILLS</h2>
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
                         {skills.map((skill, index) => (
-                            <div key={index} className="min-w-[120px] px-4 py-6 shadow-xl text-center transform transition-all duration-700 ease-in-out hover:scale-105 hover:rotate-2 hover:z-10 relative transition-transform duration-300 cursor-pointer transition-all duration-300 bg-transparent text-white shadow-[0_0_15px_rgba(0,255,255,0.3)]">
+                            <div key={index} className="min-w-[120px] px-4 py-6 shadow-xl text-center transform transition-all duration-700 ease-in-out hover:scale-105 hover:rotate-2 hover:z-10 relative transition-transform duration-300 cursor-pointer transition-all duration-300 bg-transparent text-white shadow-card">
                                 <div className="text-4xl mb-4 text-white transition-all duration-500 ease-in-out hover:scale-110 hover:animate-pulse">
                                     {iconMap[skill] || <span>🚀</span>}
                                 </div>
@@ -126,6 +126,19 @@ export default function Skills({ skills }) {
                         100% {
                             transform: scale(1);
                         }
+                    }
+                `}
+            </style>
+            <style>
+                {`
+                    .shadow-card {
+                        border: 2px solid transparent;
+                        border-radius: 10px;
+                        padding: 1rem;
+                        position: relative;
+                        overflow: hidden;
+                        box-shadow: 0px 10px 30px rgba(0, 255, 255, 0.3); /* Permanent shadow */
+                        transition: transform 0.3s ease-in-out;
                     }
                 `}
             </style>
