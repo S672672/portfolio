@@ -4,7 +4,7 @@ import { faFacebookF, faLinkedinIn, faTwitter, faInstagram, faGithub } from '@fo
 
 export default function SocialMedia({ links }) {
     return (
-        <div className="flex space-x-4 items-center justify-center h-20 bg-blue-200">
+        <div className="flex space-x-4 items-center justify-center h-20 bg-black">
             {/* Facebook */}
             <a href={links.facebook} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
                 <FontAwesomeIcon icon={faFacebookF} size="2x" />
@@ -22,7 +22,7 @@ export default function SocialMedia({ links }) {
                 <FontAwesomeIcon icon={faInstagram} size="2x" />
             </a>
             {/* GitHub */}
-            <a href={links.github} target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-black">
+            <a href={links.github} target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-blue-300">
                 <FontAwesomeIcon icon={faGithub} size="2x" />
             </a>
         </div>

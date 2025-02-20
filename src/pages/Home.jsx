@@ -1,4 +1,4 @@
-import React from 'react';
+import {React,useEffect} from 'react';
 import Navbar from '../assets/components/Navbar';
 import Contact from '../assets/components/Contact';
 import Hero from '../assets/components/Hero';
@@ -8,8 +8,17 @@ import Skills from '../assets/components/Skills';
 import SocialMedia from '../assets/components/SocialMedia';
 import Creation from '../assets/components/Creation';
 import Viewall from '../assets/components/ViewAll';
+import AOS from "aos";
 
 export default function Home() {
+
+    useEffect(()=>{AOS.init({
+             duration: 2000, // Default duration for animations
+             easing: 'ease-out-back', // You can tweak the easing function here
+             once: true, // Trigger the animation only once
+           });
+         }, []);
+
     const socialLinks = {
         facebook: "https://www.facebook.com/profile.php?id=100077372552139",
         linkedin: "https://www.linkedin.com/in/smith-b-40160a25a/",
@@ -20,9 +29,10 @@ export default function Home() {
     return (
         <>
             <Navbar />
-            <Hero title="Namaste, I’m Smith Bhattarai" subtitle="Innovating through software to make a difference." buttonText="View Projects" />
+            <div>
+            <Hero />
             <About />
-            <Skills skills={['JavaScript','Python','React', 'Node.js', 'Tailwind CSS', 'Express.js', 'MongoDB','git','github']} />
+            <Skills skills={['JavaScript','TypeScript','Python','React','Next.js', 'Node.js', 'Tailwind CSS', 'Express.js', 'MongoDB','git','github','mySQL']} />
             <Projects projects={[
                 { title: 'spend sense', description: 'A comprehensive web application enabling users to track and manage their expenses effectively. Designed with user-friendly features for seamless financial oversight.', image: './expensetracker.png',linkk:'https://github.com/S672672/Expense-Tracker' },
                 { title: 'Ip address tracker', description: ' A web application that pinpoints geographical locations based on IP addresses, built to demonstrate mastery of APIs and geolocation services', image: './ipaddresstracker.png',linkk:'https://github.com/S672672/IpAddressTracker-using-react' },
@@ -36,6 +46,7 @@ export default function Home() {
             <Contact />
             <SocialMedia links={socialLinks} />
             <Creation />
+            </div>
         </>
     );
 }

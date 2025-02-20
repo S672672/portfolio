@@ -7,6 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        victorMono: ['"Victor Mono"', 'monospace'],
         inter: ['Inter', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
         ruge: ['Ruge Boogie', 'cursive'],
