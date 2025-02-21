@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { FaUser, FaEnvelope, FaComment } from 'react-icons/fa'; // Importing icons
+import { FaUser, FaEnvelope, FaComment } from 'react-icons/fa'; 
 import gif from "../pictures/giphy3.gif";
 
 export default function Contact() {
@@ -9,11 +9,21 @@ export default function Contact() {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Default duration for animations
-      easing: 'ease-out-back', // You can tweak the easing function here
-      once: false, // Trigger the animation every time the element enters the viewport
-      offset: 100, // Adjust offset to trigger animation before or after the element enters the viewport
+      duration: 1000, 
+      easing: 'ease-out-back', 
+      once: false, 
+      offset: 100,
     });
+    const handleScroll = () => {
+      AOS.refresh();
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const onSubmit = async (event) => {
@@ -57,7 +67,6 @@ export default function Contact() {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            {/* Name and Email Fields */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
               <div className="relative">
                 <label htmlFor="name" className="text-white font-semibold mb-2 inline-flex items-center">
@@ -91,7 +100,6 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Message Field */}
             <div className="relative mb-8">
               <label htmlFor="message" className="text-white font-semibold mb-2 inline-flex items-center">
                 <FaComment className="mr-2 text-cyan-400" /> Message
@@ -117,7 +125,6 @@ export default function Contact() {
             </button>
           </form>
 
-          {/* Image */}
           <div className="relative w-full md:w-1/2 z-10 flex justify-center mt-8 md:mt-0" data-aos="fade-left">
             <img 
               src={gif} 

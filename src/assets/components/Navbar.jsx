@@ -9,8 +9,6 @@ export default function Navbar() {
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
-        
-        // Force recalculation of the active section after closing the menu
         setTimeout(() => {
             const sections = document.querySelectorAll("section");
             sections.forEach((section) => {
@@ -33,14 +31,13 @@ export default function Navbar() {
                     }
                 });
             },
-            { threshold: 0.1 }
+            { threshold: 0.02 }
         );
 
         sections.forEach((section) => observer.observe(section));
 
         return () => sections.forEach((section) => observer.unobserve(section));
     }, [activeSection]);
-
 
     useEffect(() => {
         const handleScroll = () => {
@@ -54,22 +51,19 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [activeSection]);
 
-
     return (
         <nav className="fixed top-0 left-0 w-full bg-black p-4 shadow-xl z-50">
             <div className="container mx-auto flex justify-between items-center">
-                {/* Brand Name */}
+                
                 <h1 className="text-cyan-400 text-3xl font-jaini tracking-wide relative">
                     Smith Bhattarai
                     <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur-md opacity-20 -z-10"></div>
                 </h1>
 
-                {/* Hamburger Icon for Mobile */}
-                <div className="lg:hidden text-cyan-400 text-3xl cursor-pointer" onClick={toggleMenu}>
+              <div className="lg:hidden text-cyan-400 text-3xl cursor-pointer" onClick={toggleMenu}>
                     {isOpen ? <FaTimes /> : <FaBars />}
                 </div>
 
-                {/* Desktop Menu */}
                 <ul className="hidden lg:flex space-x-6">
                     {["home", "about", "skills", "projects", "contact"].map((item) => (
                         <motion.li
@@ -92,7 +86,6 @@ export default function Navbar() {
                     ))}
                 </ul>
 
-                {/* Mobile Dropdown Menu */}
                 {isOpen && (
                     <div className="lg:hidden absolute top-16 left-0 w-full bg-black p-4 shadow-xl">
                         <ul className="flex flex-col space-y-4">

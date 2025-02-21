@@ -16,12 +16,19 @@ const Hero = () => {
       });
     }
     
-    // Initialize AOS
     AOS.init({
       duration: 2000,
       easing: 'ease-out-back',
       once: true,
     });
+     const handleScroll = () => {
+          AOS.refresh();
+        };
+    
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
   }, []);
 
   return (
@@ -31,7 +38,7 @@ const Hero = () => {
         <span className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-cyan-400 rounded-full"></span>
       </div>
     
-      <div className="text-white relative z-20 max-w-3xl text-start md:text-left mt-16" data-aos="fade-up">
+      <div className="text-white relative z-20 max-w-3xl text-start md:text-left mt-32 md:mt-10" data-aos="fade-up">
       <p className="flex flex-wrap items-center justify-start md:justify-start uppercase text-lg font-light">
   Namaste, I am <b className="ml-1 text-cyan-400">Smith Bhattarai</b>
 </p>
@@ -45,7 +52,7 @@ const Hero = () => {
   <span className="text-white  block md:inline animate-pulse"> Engineer</span>
 </p>
 
-<p className="text-lg font-light mt-6 max-w-lg mx-auto md:mx-0 leading-relaxed animate-slideIn text-start" data-aos="fade-up" data-aos-delay="200">
+<p className="text-lg font-light mt-6 max-w-lg mx-auto md:mx-0 leading-relaxed animate-slideIn text-start underline underline-offset-4 decoration-cyan-400" data-aos="fade-up" data-aos-delay="200">
   Innovating through software to make a difference.
 </p>
 
@@ -61,14 +68,14 @@ const Hero = () => {
       </div>
     
       <div
-  className="absolute right-0 top-1/4 w-1/2 md:static md:w-1/2 z-0 pointer-events-none"
-  data-aos="zoom-in"
+  className="absolute right-0 top-[30%] w-4/5 md:static md:w-1/2 z-0 pointer-events-none transform -translate-y-1/2"
+  data-aos="zoom-out"
   data-aos-delay="800"
 >
 <img
   src={gif3}
   alt="Image"
-  className="w-full h-auto object-cover animate-fadeIn opacity-40"
+  className="w-full h-auto object-cover animate-fadeIn opacity-25 md:opacity-50 md:transform-none"
   style={{ mixBlendMode: "overlay" }}
 />
 
