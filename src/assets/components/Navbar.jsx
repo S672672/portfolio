@@ -9,6 +9,17 @@ export default function Navbar() {
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
+        
+        // Force recalculation of the active section after closing the menu
+        setTimeout(() => {
+            const sections = document.querySelectorAll("section");
+            sections.forEach((section) => {
+                if (section.getBoundingClientRect().top <= window.innerHeight / 2) {
+                    setPrevSection(activeSection);
+                    setActiveSection(section.id);
+                }
+            });
+        }, 300);
     };
 
     useEffect(() => {
@@ -17,30 +28,37 @@ export default function Navbar() {
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        const sectionId = entry.target.id;
                         setPrevSection(activeSection);
-                        setActiveSection(sectionId);
+                        setActiveSection(entry.target.id);
                     }
                 });
             },
-            { threshold: 0.2 }
+            { threshold: 0.1 } // Lowered threshold for better mobile detection
         );
 
-        sections.forEach((section) => {
-            observer.observe(section);
-        });
+        sections.forEach((section) => observer.observe(section));
 
-        return () => {
-            sections.forEach((section) => {
-                observer.unobserve(section);
-            });
-        };
+        return () => sections.forEach((section) => observer.unobserve(section));
     }, [activeSection]);
+
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY === 0) {
+                setPrevSection(activeSection);
+                setActiveSection("home"); // Ensure Home is reactivated when at the top
+            }
+        };
+    
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [activeSection]);
+
 
     return (
         <nav className="fixed top-0 left-0 w-full bg-black p-4 shadow-xl z-50">
             <div className="container mx-auto flex justify-between items-center">
-                {/* Brand Name */} 
+                {/* Brand Name */}
                 <h1 className="text-cyan-400 text-3xl font-jaini tracking-wide relative">
                     Smith Bhattarai
                     <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur-md opacity-20 -z-10"></div>
@@ -82,16 +100,22 @@ export default function Navbar() {
                                 <motion.li
                                     key={item}
                                     className={`relative font-bold text-center transition-all duration-300 ${
-                                         activeSection === item
-                                    ? "text-white"
-                                    : prevSection === item
-                                    ? "text-yellow-400"
-                                    : "text-cyan-400"
+                                        activeSection === item
+                                            ? "text-white"
+                                            : prevSection === item
+                                            ? "text-yellow-400"
+                                            : "text-cyan-400"
                                     }`}
                                     whileHover={{ scale: 1.1 }}
                                     transition={{ duration: 0.3 }}
                                 >
-                                    <a href={`#${item}`} onClick={toggleMenu}>
+                                    <a
+                                        href={`#${item}`}
+                                        onClick={() => {
+                                            toggleMenu();
+                                            setActiveSection(item);
+                                        }}
+                                    >
                                         {item.charAt(0).toUpperCase() + item.slice(1)}
                                     </a>
                                 </motion.li>

@@ -63,7 +63,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-black text-white">
+    <section id="about" className="py-20 bg-black w-full text-white">
       <div className="flex flex-col items-center justify-center gap-5">
         <div className="text-5xl font-bold text-white mb-10 underline" data-aos="fade-up">WHO AM I?</div>
         <div className="container mx-auto px-6 text-center">
@@ -109,6 +109,7 @@ export default function About() {
                       <div className="w-1/2 pr-5 mr-4">
                         <div className="bg-transparent p-6 shadow-lg mr-2  border-transparent shadow-card" data-aos="fade-left">
                           <h2 className="text-xl font-bold">{item.title}</h2>
+                          {item.company && <h1 className="text-orange-400 font-bold">🏢 {item.company}</h1>}
                           {item.date && <p className="text-cyan-400 font-semibold text-lg">({item.date})</p>}
                           <p className="text-gray-300 whitespace-pre-line">{item.description}</p>
                         </div>
@@ -125,6 +126,7 @@ export default function About() {
                       <div className="w-1/2 pl-7 ml-auto">
                         <div className="bg-transparent p-6 shadow-lg  border-transparent shadow-card" data-aos="fade-right">
                           <h2 className="text-xl font-bold">{item.title}</h2>
+                          {item.company && <h1 className="text-orange-400 font-bold">🏢 {item.company}</h1>}
                           {item.date && <p className="text-cyan-400 font-semibold text-lg">({item.date})</p>}
                           <p className="text-gray-300 whitespace-pre-line">{item.description}</p>
                         </div>
@@ -149,7 +151,7 @@ export default function About() {
                   </div>
                   <div className="bg-transparent  border-transparent shadow-card p-3 shadow-lg text-left flex-1 ml-4">
                     <h2 className="text-xl font-bold">{item.title}</h2>
-                    <h1 className="text-orange-400">{item.company}</h1>
+                    {item.company && <h1 className="text-orange-400 font-bold">🏢 {item.company}</h1>}
                     {item.date && <p className="text-cyan-400 text-sm">({item.date})</p>}
                     <p className="text-gray-300 whitespace-pre-line">{item.description}</p>
                   </div>
@@ -167,7 +169,6 @@ export default function About() {
                         box-shadow: 0px 10px 30px rgba(0, 255, 255, 0.3); /* Permanent shadow */
                         transition: transform 0.3s ease-in-out;
                     }
-
                 `}
             </style>
           </div>
