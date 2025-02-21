@@ -33,7 +33,7 @@ export default function Navbar() {
                     }
                 });
             },
-            { threshold: 0.1 } // Lowered threshold for better mobile detection
+            { threshold: 0.1 }
         );
 
         sections.forEach((section) => observer.observe(section));
@@ -46,7 +46,7 @@ export default function Navbar() {
         const handleScroll = () => {
             if (window.scrollY === 0) {
                 setPrevSection(activeSection);
-                setActiveSection("home"); // Ensure Home is reactivated when at the top
+                setActiveSection("home");
             }
         };
     
