@@ -68,7 +68,7 @@ const Hero = () => {
       </div>
     
       <div
-  className="absolute right-0 top-[30%] w-4/5 md:static md:w-1/2 z-0 pointer-events-none transform -translate-y-1/2"
+  className="absolute right-0 top-[35%] w-4/5 md:static md:w-1/2 z-0 pointer-events-none transform -translate-y-1/2"
   data-aos="zoom-out"
   data-aos-delay="800"
 >
