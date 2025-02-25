@@ -53,7 +53,7 @@ function TiltCard({ project, index }) {
 
     return (
         <div 
-            className="relative bg-opacity-75 m-4 overflow-hidden shadow-lg transition-transform duration-300 cursor-pointer transition-all duration-300 bg-transparent text-white border-indigo-400 shadow-[0_0_15px_rgba(0,255,255,0.6)] hover:scale-105"
+            className="border border-2 border-cyan-900 relative bg-opacity-75 m-4 overflow-hidden shadow-lg transition-transform duration-300 cursor-pointer transition-all duration-300 bg-transparent text-white border-indigo-400 shadow-[0_0_15px_rgba(0,255,255,0.6)] hover:scale-105"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{
@@ -65,14 +65,24 @@ function TiltCard({ project, index }) {
             <div className="p-6">
                 <h3 className="text-2xl font-bold mb-2 text-blue-500">{project.title}</h3>
                 <p className="text-gray-300 mb-4">{project.description}</p>
+                <div className="flex items-center justify-between gap-1">
                 <a
                     href={project.linkk}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block px-3 py-3 mt-4 text-black font-medium text-lg bg-cyan-400 border-2 border-transparent transition-all duration-300 hover:bg-transparent hover:text-white hover:border-cyan-400 hover:shadow-[0_0_15px_rgba(0,255,255,0.6)] hover:scale-105"
+                    className="inline-block px-3 py-3 mt-4 text-black font-medium bg-cyan-400 border-2 border-transparent transition-all duration-300 hover:bg-transparent hover:text-white hover:border-cyan-400 hover:shadow-[0_0_15px_rgba(0,255,255,0.6)] hover:scale-105"
                 >
                     View Project
                 </a>
+                {project.Live &&  <a
+                    href={project.Live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-3 py-3 mt-4 text-black font-medium bg-purple-400 border-2 border-transparent transition-all duration-300 hover:bg-transparent hover:text-white hover:border-cyan-400 hover:shadow-[0_0_15px_rgba(0,255,255,0.6)] hover:scale-105"
+                >
+                    view live
+                </a>}
+                </div>
             </div>
         </div>
     );
