@@ -73,7 +73,7 @@ export default function About() {
           <div className="flex flex-col lg:flex-row items-center lg:items-start lg:space-x-12">
             <div className="lg:w-1/3 text-center relative flex flex-col items-center">
               <img
-                src="/smithimg.jpeg"
+                src="/smithimg.jpg"
                 alt="Profile"
                 className="relative rounded-full w-48 h-48 object-cover border-transparent shadow-[0_0_25px_5px_rgba(0,255,255,0.6)]"
                 data-aos="zoom-in"
