@@ -8,8 +8,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        mono: ['"Victor Mono"', '"Fira Code"', 'monospace'],
-        display: ['"Victor Mono"', 'monospace'],
+        mono: ['"JetBrains Mono"', '"Fira Code"', 'monospace'],
+        display: ['Inter', '-apple-system', 'sans-serif'],
       },
       colors: {
         os: {

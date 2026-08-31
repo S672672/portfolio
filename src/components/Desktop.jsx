@@ -7,6 +7,7 @@ import Dock from './Dock';
 import Window from './Window';
 import DesktopIcon from './DesktopIcon';
 import AnalogClock from './AnalogClock';
+import StatusPanel from './StatusPanel';
 import SystemCore from './SystemCore';
 import RecruiterView from './apps/RecruiterView';
 import AboutApp from './apps/AboutApp';
@@ -187,6 +188,7 @@ export default function Desktop() {
             transition: 'opacity 0.5s ease-out 0.3s',
           }}>
             <AnalogClock onSessionStart={sessionStart} onSecondTick={handleSecondTick} />
+            <StatusPanel />
           </div>
         )}
       </div>
@@ -238,7 +240,7 @@ export default function Desktop() {
             }}>
               <span style={{
                 fontSize: 9, color: 'var(--os-text-faint)', letterSpacing: '1.5px',
-                fontWeight: 600, fontFamily: "'SF Mono', monospace",
+                fontWeight: 600, fontFamily: "'JetBrains Mono', monospace",
               }}>
                 NAVIGATION
               </span>
@@ -251,7 +253,7 @@ export default function Desktop() {
                   background: 'rgba(230,114,114,0.06)', border: '1px solid rgba(230,114,114,0.12)',
                   color: 'var(--os-error)', fontSize: 12, fontWeight: 700,
                   transition: 'all 0.15s', padding: 0, lineHeight: 1,
-                  fontFamily: "'SF Mono', monospace",
+                  fontFamily: "'JetBrains Mono', monospace",
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(230,114,114,0.12)'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(230,114,114,0.06)'; }}

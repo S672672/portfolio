@@ -5,7 +5,7 @@ import { FiFolder, FiFileText, FiGithub, FiExternalLink, FiArrowLeft } from 'rea
 export default function ProjectsApp() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [viewMode, setViewMode] = useState('normal'); // 'normal' or 'xray'
+  const [viewMode, setViewMode] = useState('normal');
   const [expandedLayer, setExpandedLayer] = useState(null);
 
   const files = selectedProject
@@ -26,32 +26,33 @@ export default function ProjectsApp() {
     switch (selectedFile) {
       case 'readme':
         return (
-          <div style={{ lineHeight: 1.8, fontSize: 14 }}>
-            <h3 style={{ color: 'var(--os-accent)', marginBottom: 8 }}>{p.title}</h3>
-            <p style={{ marginBottom: 16 }}>{p.readme.overview}</p>
-            <h4 style={{ color: 'var(--os-purple)', fontSize: 13, marginBottom: 6 }}>Problem</h4>
-            <p style={{ marginBottom: 16 }}>{p.readme.problem}</p>
-            <h4 style={{ color: 'var(--os-purple)', fontSize: 13, marginBottom: 6 }}>What Makes It Interesting</h4>
-            <p style={{ marginBottom: 16 }}>{p.readme.interesting}</p>
-            <h4 style={{ color: 'var(--os-purple)', fontSize: 13, marginBottom: 6 }}>My Contribution</h4>
-            <p>{p.readme.contribution}</p>
+          <div style={{ lineHeight: 1.8, fontSize: 14, fontFamily: 'Inter, sans-serif' }}>
+            <h3 style={{ color: 'var(--os-accent)', marginBottom: 8, fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{p.title}</h3>
+            <p style={{ marginBottom: 16, color: 'var(--os-text)' }}>{p.readme.overview}</p>
+            <h4 style={{ color: 'var(--os-purple)', fontSize: 13, marginBottom: 6, fontFamily: 'Inter, sans-serif' }}>Problem</h4>
+            <p style={{ marginBottom: 16, color: 'var(--os-text-secondary)' }}>{p.readme.problem}</p>
+            <h4 style={{ color: 'var(--os-purple)', fontSize: 13, marginBottom: 6, fontFamily: 'Inter, sans-serif' }}>What Makes It Interesting</h4>
+            <p style={{ marginBottom: 16, color: 'var(--os-text-secondary)' }}>{p.readme.interesting}</p>
+            <h4 style={{ color: 'var(--os-purple)', fontSize: 13, marginBottom: 6, fontFamily: 'Inter, sans-serif' }}>My Contribution</h4>
+            <p style={{ color: 'var(--os-text-secondary)' }}>{p.readme.contribution}</p>
           </div>
         );
       case 'tech':
         return (
           <div>
-            <h4 style={{ color: 'var(--os-accent)', marginBottom: 12, fontSize: 14 }}>Technologies</h4>
+            <h4 style={{ color: 'var(--os-accent)', marginBottom: 12, fontSize: 14, fontFamily: 'Inter, sans-serif' }}>Technologies</h4>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
               {p.technologies.map((t) => (
                 <span
                   key={t}
                   style={{
                     padding: '6px 14px',
-                    background: 'rgba(56,189,248,0.1)',
-                    border: '1px solid rgba(56,189,248,0.2)',
+                    background: 'rgba(56,189,248,0.08)',
+                    border: '1px solid rgba(56,189,248,0.15)',
                     borderRadius: 6,
                     fontSize: 13,
                     color: 'var(--os-accent)',
+                    fontFamily: "'JetBrains Mono', monospace",
                   }}
                 >
                   {t}
@@ -63,7 +64,7 @@ export default function ProjectsApp() {
       case 'highlights':
         return (
           <div>
-            <h4 style={{ color: 'var(--os-accent)', marginBottom: 12, fontSize: 14 }}>Highlights</h4>
+            <h4 style={{ color: 'var(--os-accent)', marginBottom: 12, fontSize: 14, fontFamily: 'Inter, sans-serif' }}>Highlights</h4>
             {p.highlights.map((h, i) => (
               <div
                 key={i}
@@ -74,6 +75,8 @@ export default function ProjectsApp() {
                   marginBottom: 8,
                   borderRadius: '0 6px 6px 0',
                   fontSize: 14,
+                  fontFamily: 'Inter, sans-serif',
+                  color: 'var(--os-text)',
                 }}
               >
                 {h}
@@ -84,13 +87,13 @@ export default function ProjectsApp() {
       case 'challenges':
         return (
           <div>
-            <h4 style={{ color: 'var(--os-accent)', marginBottom: 12, fontSize: 14 }}>Challenges</h4>
+            <h4 style={{ color: 'var(--os-accent)', marginBottom: 12, fontSize: 14, fontFamily: 'Inter, sans-serif' }}>Challenges</h4>
             {p.challenges.map((c, i) => (
               <div key={i} style={{ marginBottom: 16 }}>
-                <div style={{ fontWeight: 600, color: 'var(--os-orange)', fontSize: 13, marginBottom: 4 }}>
+                <div style={{ fontWeight: 600, color: 'var(--os-orange)', fontSize: 13, marginBottom: 4, fontFamily: 'Inter, sans-serif' }}>
                   Challenge: {c.challenge}
                 </div>
-                <div style={{ paddingLeft: 12, borderLeft: '2px solid var(--os-border)', fontSize: 13, color: 'var(--os-text-muted)' }}>
+                <div style={{ paddingLeft: 12, borderLeft: '2px solid var(--os-border)', fontSize: 13, color: 'var(--os-text-muted)', fontFamily: 'Inter, sans-serif' }}>
                   Approach: {c.approach}
                 </div>
               </div>
@@ -100,7 +103,7 @@ export default function ProjectsApp() {
       case 'learn':
         return (
           <div>
-            <h4 style={{ color: 'var(--os-accent)', marginBottom: 12, fontSize: 14 }}>What I Learned</h4>
+            <h4 style={{ color: 'var(--os-accent)', marginBottom: 12, fontSize: 14, fontFamily: 'Inter, sans-serif' }}>What I Learned</h4>
             {p.learned.map((l, i) => (
               <div
                 key={i}
@@ -111,6 +114,8 @@ export default function ProjectsApp() {
                   marginBottom: 8,
                   borderRadius: '0 6px 6px 0',
                   fontSize: 14,
+                  fontFamily: 'Inter, sans-serif',
+                  color: 'var(--os-text)',
                 }}
               >
                 {l}
@@ -128,7 +133,7 @@ export default function ProjectsApp() {
   const renderXRay = (p) => {
     if (!p.architecture || p.architecture.length === 0) {
       return (
-        <div style={{ color: 'var(--os-text-dim)', textAlign: 'center', marginTop: 40 }}>
+        <div style={{ color: 'var(--os-text-dim)', textAlign: 'center', marginTop: 40, fontFamily: 'Inter, sans-serif' }}>
           <div style={{ fontSize: 14 }}>X-Ray data not available for this project.</div>
         </div>
       );
@@ -144,10 +149,10 @@ export default function ProjectsApp() {
 
     return (
       <div>
-        <h4 style={{ color: 'var(--os-purple)', marginBottom: 4, fontSize: 14 }}>
+        <h4 style={{ color: 'var(--os-purple)', marginBottom: 4, fontSize: 14, fontFamily: 'Inter, sans-serif' }}>
           PROJECT X-RAY
         </h4>
-        <p style={{ color: 'var(--os-text-dim)', fontSize: 12, marginBottom: 20 }}>
+        <p style={{ color: 'var(--os-text-dim)', fontSize: 12, marginBottom: 20, fontFamily: 'Inter, sans-serif' }}>
           Architectural breakdown of {p.title}
         </p>
 
@@ -162,26 +167,19 @@ export default function ProjectsApp() {
                 <div
                   onClick={() => setExpandedLayer(isExpanded ? null : i)}
                   style={{
-                    width: '100%',
-                    maxWidth: 500,
+                    width: '100%', maxWidth: 500,
                     padding: '14px 18px',
                     background: isExpanded ? `${color}11` : 'var(--os-surface-raised)',
                     border: `1px solid ${isExpanded ? color : 'var(--os-border)'}`,
-                    borderRadius: 8,
-                    cursor: 'pointer',
-                    transition: 'all 0.2s',
+                    borderRadius: 8, cursor: 'pointer', transition: 'all 0.2s',
                   }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = color;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = isExpanded ? color : 'var(--os-border)';
-                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = color; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = isExpanded ? color : 'var(--os-border)'; }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     <div>
-                      <div style={{ fontWeight: 600, fontSize: 14, color }}>{layer.layer}</div>
-                      <div style={{ fontSize: 12, color: 'var(--os-text-dim)', marginTop: 2 }}>{layer.tech}</div>
+                      <div style={{ fontWeight: 600, fontSize: 14, color, fontFamily: 'Inter, sans-serif' }}>{layer.layer}</div>
+                      <div style={{ fontSize: 12, color: 'var(--os-text-dim)', marginTop: 2, fontFamily: "'JetBrains Mono', monospace" }}>{layer.tech}</div>
                     </div>
                     <span style={{ color: 'var(--os-text-dim)', fontSize: 12 }}>
                       {isExpanded ? '\u25BE' : '\u25B8'}
@@ -189,13 +187,12 @@ export default function ProjectsApp() {
                   </div>
                   {isExpanded && (
                     <div style={{
-                      marginTop: 12,
-                      paddingTop: 12,
+                      marginTop: 12, paddingTop: 12,
                       borderTop: `1px solid ${color}33`,
-                      fontSize: 13,
-                      lineHeight: 1.6,
+                      fontSize: 13, lineHeight: 1.6,
                       color: 'var(--os-text-muted)',
                       animation: 'slideUp 0.2s ease-out',
+                      fontFamily: 'Inter, sans-serif',
                     }}>
                       {layer.description}
                     </div>
@@ -203,8 +200,7 @@ export default function ProjectsApp() {
                 </div>
                 {!isLast && (
                   <div style={{
-                    width: 2,
-                    height: 20,
+                    width: 2, height: 20,
                     background: `linear-gradient(${layerColors[i % layerColors.length]}, ${layerColors[(i + 1) % layerColors.length]})`,
                     opacity: 0.4,
                   }} />
@@ -225,17 +221,22 @@ export default function ProjectsApp() {
           width: 220,
           borderRight: '1px solid var(--os-border)',
           background: 'var(--os-surface-raised)',
-          display: 'flex',
-          flexDirection: 'column',
-          overflow: 'hidden',
+          display: 'flex', flexDirection: 'column', overflow: 'hidden',
         }}
       >
         {/* Breadcrumb */}
-        <div style={{ padding: '10px 14px', borderBottom: '1px solid var(--os-border)', fontSize: 12, color: 'var(--os-text-dim)', display: 'flex', alignItems: 'center', gap: 6 }}>
+        <div style={{
+          padding: '10px 14px', borderBottom: '1px solid var(--os-border)',
+          fontSize: 12, color: 'var(--os-text-dim)', display: 'flex',
+          alignItems: 'center', gap: 6, fontFamily: "'JetBrains Mono', monospace",
+        }}>
           {selectedProject && (
             <button
               onClick={() => { setSelectedProject(null); setSelectedFile(null); }}
-              style={{ background: 'none', border: 'none', color: 'var(--os-accent)', cursor: 'pointer', padding: 0, display: 'flex', fontFamily: 'inherit' }}
+              style={{
+                background: 'none', border: 'none', color: 'var(--os-accent)',
+                cursor: 'pointer', padding: 0, display: 'flex', fontFamily: 'inherit',
+              }}
             >
               <FiArrowLeft size={14} />
             </button>
@@ -254,7 +255,7 @@ export default function ProjectsApp() {
                   onClick={() => setSelectedProject(p)}
                 >
                   <FiFolder size={16} color="var(--os-accent)" />
-                  <span style={{ fontSize: 13 }}>{p.folder}</span>
+                  <span style={{ fontSize: 13, fontFamily: 'Inter, sans-serif' }}>{p.folder}</span>
                 </div>
               ))
             : files.map((f) => (
@@ -264,7 +265,7 @@ export default function ProjectsApp() {
                   onClick={() => setSelectedFile(f.id)}
                 >
                   <FiFileText size={14} color="var(--os-text-muted)" />
-                  <span style={{ fontSize: 13 }}>{f.name}</span>
+                  <span style={{ fontSize: 13, fontFamily: 'Inter, sans-serif' }}>{f.name}</span>
                 </div>
               ))}
         </div>
@@ -277,7 +278,12 @@ export default function ProjectsApp() {
                 href={selectedProject.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '6px 10px', color: 'var(--os-text-muted)', textDecoration: 'none', fontSize: 12, borderRadius: 4, transition: 'all 0.15s' }}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: 6,
+                  padding: '6px 10px', color: 'var(--os-text-muted)',
+                  textDecoration: 'none', fontSize: 12, borderRadius: 4,
+                  transition: 'all 0.15s', fontFamily: 'Inter, sans-serif',
+                }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(56,189,248,0.08)'; e.currentTarget.style.color = 'var(--os-accent)'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--os-text-muted)'; }}
               >
@@ -289,7 +295,12 @@ export default function ProjectsApp() {
                 href={selectedProject.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '6px 10px', color: 'var(--os-text-muted)', textDecoration: 'none', fontSize: 12, borderRadius: 4, transition: 'all 0.15s' }}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: 6,
+                  padding: '6px 10px', color: 'var(--os-text-muted)',
+                  textDecoration: 'none', fontSize: 12, borderRadius: 4,
+                  transition: 'all 0.15s', fontFamily: 'Inter, sans-serif',
+                }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(56,189,248,0.08)'; e.currentTarget.style.color = 'var(--os-accent)'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--os-text-muted)'; }}
               >
@@ -303,36 +314,66 @@ export default function ProjectsApp() {
       {/* Main content */}
       <div style={{ flex: 1, overflow: 'auto', padding: 20 }} className="os-scrollbar">
         {!selectedProject && !selectedFile && (
-          <div style={{ color: 'var(--os-text-dim)', textAlign: 'center', marginTop: 60, fontSize: 14 }}>
+          <div style={{
+            color: 'var(--os-text-dim)', textAlign: 'center', marginTop: 60, fontSize: 14,
+            fontFamily: 'Inter, sans-serif',
+          }}>
             <FiFolder size={32} style={{ marginBottom: 12, opacity: 0.3 }} />
             <div>Select a project folder to explore</div>
-            <div style={{ fontSize: 12, marginTop: 8 }}>Each project contains README, technologies, highlights, and more</div>
+            <div style={{ fontSize: 12, marginTop: 8, color: 'var(--os-text-dim)' }}>
+              Each project contains README, technologies, highlights, challenges, and architectural analysis
+            </div>
           </div>
         )}
         {selectedProject && !selectedFile && (
           <div>
-            <div style={{ display: 'flex', gap: 12, marginBottom: 20, alignItems: 'center' }}>
-              <img
-                src={selectedProject.image}
-                alt={selectedProject.title}
-                style={{ width: 60, height: 60, borderRadius: 8, objectFit: 'cover' }}
-              />
-              <div style={{ flex: 1 }}>
-                <h3 style={{ color: 'var(--os-accent)', fontSize: 18, margin: 0 }}>{selectedProject.title}</h3>
-                <p style={{ color: 'var(--os-text-muted)', fontSize: 13, margin: '4px 0 0 0' }}>{selectedProject.readme.overview}</p>
+            {/* Project header card */}
+            <div style={{
+              padding: 20, background: 'var(--os-surface-raised)',
+              border: '1px solid var(--os-border)', borderRadius: 10,
+              marginBottom: 20,
+            }}>
+              <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  style={{ width: 56, height: 56, borderRadius: 8, objectFit: 'cover', flexShrink: 0 }}
+                />
+                <div style={{ flex: 1 }}>
+                  <h3 style={{
+                    color: 'var(--os-accent)', fontSize: 18, margin: 0,
+                    fontFamily: 'Inter, sans-serif', fontWeight: 700,
+                  }}>{selectedProject.title}</h3>
+                  <p style={{
+                    color: 'var(--os-text-muted)', fontSize: 13,
+                    margin: '6px 0 0 0', lineHeight: 1.6,
+                    fontFamily: 'Inter, sans-serif',
+                  }}>{selectedProject.readme.overview}</p>
+
+                  {/* Tech tags */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginTop: 10 }}>
+                    {selectedProject.technologies.map((t) => (
+                      <span key={t} style={{
+                        fontSize: 10, padding: '2px 8px', borderRadius: 4,
+                        background: 'rgba(56,189,248,0.06)', border: '1px solid rgba(56,189,248,0.12)',
+                        color: 'var(--os-accent)', fontFamily: "'JetBrains Mono', monospace",
+                      }}>{t}</span>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <div style={{ display: 'flex', gap: 4 }}>
+
+              {/* View mode toggle */}
+              <div style={{ display: 'flex', gap: 6, marginTop: 16 }}>
                 <button
                   onClick={() => { setViewMode('normal'); setSelectedFile('readme'); }}
                   style={{
                     padding: '6px 12px',
-                    background: viewMode === 'normal' ? 'rgba(56,189,248,0.15)' : 'transparent',
+                    background: viewMode === 'normal' ? 'rgba(56,189,248,0.12)' : 'transparent',
                     border: '1px solid var(--os-border)',
                     borderRadius: 6,
                     color: viewMode === 'normal' ? 'var(--os-accent)' : 'var(--os-text-dim)',
-                    fontSize: 12,
-                    cursor: 'pointer',
-                    fontFamily: 'inherit',
+                    fontSize: 12, cursor: 'pointer', fontFamily: 'Inter, sans-serif',
                     transition: 'all 0.15s',
                   }}
                 >
@@ -342,13 +383,11 @@ export default function ProjectsApp() {
                   onClick={() => { setViewMode('xray'); setSelectedFile('xray'); }}
                   style={{
                     padding: '6px 12px',
-                    background: viewMode === 'xray' ? 'rgba(167,139,250,0.15)' : 'transparent',
+                    background: viewMode === 'xray' ? 'rgba(167,139,250,0.12)' : 'transparent',
                     border: '1px solid var(--os-border)',
                     borderRadius: 6,
                     color: viewMode === 'xray' ? 'var(--os-purple)' : 'var(--os-text-dim)',
-                    fontSize: 12,
-                    cursor: 'pointer',
-                    fontFamily: 'inherit',
+                    fontSize: 12, cursor: 'pointer', fontFamily: 'Inter, sans-serif',
                     transition: 'all 0.15s',
                   }}
                 >
@@ -356,7 +395,11 @@ export default function ProjectsApp() {
                 </button>
               </div>
             </div>
-            <div style={{ color: 'var(--os-text-dim)', fontSize: 13 }}>
+
+            <div style={{
+              color: 'var(--os-text-dim)', fontSize: 13,
+              fontFamily: 'Inter, sans-serif',
+            }}>
               ← Select a file from the sidebar to view its contents
             </div>
           </div>

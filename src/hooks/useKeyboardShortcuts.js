@@ -10,7 +10,7 @@ export function useKeyboardShortcuts(handlers = {}) {
         e.preventDefault();
         handlers.quickNav?.();
       }
-      if (modifier && e.key === 't') {
+      if (e.altKey && e.key === 't') {
         e.preventDefault();
         handlers.openTerminal?.();
       }

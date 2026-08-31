@@ -207,7 +207,7 @@ export default function StartHereApp({ onOpenApp }) {
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, fontSize: 12 }}>
           <div><kbd style={kbdStyle}>Ctrl/Cmd + K</kbd> <span style={{ color: 'var(--os-text-muted)' }}>Search</span></div>
-          <div><kbd style={kbdStyle}>Ctrl/Cmd + T</kbd> <span style={{ color: 'var(--os-text-muted)' }}>Terminal</span></div>
+          <div><kbd style={kbdStyle}>Alt + T</kbd> <span style={{ color: 'var(--os-text-muted)' }}>Terminal</span></div>
           <div><kbd style={kbdStyle}>Escape</kbd> <span style={{ color: 'var(--os-text-muted)' }}>Close window</span></div>
         </div>
       </div>

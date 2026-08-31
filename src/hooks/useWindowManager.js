@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { isMobileDevice } from '../utils/device';
 
 let nextZIndex = 100;
 
@@ -22,7 +23,7 @@ export function useWindowManager() {
             : { ...w, focused: false }
         );
       }
-      const isMobile = window.innerWidth <= 768;
+      const isMobile = isMobileDevice();
       const w = isMobile ? window.innerWidth : Math.min(750, window.innerWidth - 100);
       const h = isMobile
         ? window.innerHeight - 84

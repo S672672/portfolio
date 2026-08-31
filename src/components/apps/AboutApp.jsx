@@ -6,7 +6,7 @@ export default function AboutApp() {
   const [tab, setTab] = useState('profile');
 
   return (
-    <div style={{ padding: 0, height: '100%', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ padding: 0, height: '100%', display: 'flex', flexDirection: 'column', fontFamily: 'Inter, sans-serif' }}>
       {/* Tab bar */}
       <div style={{ display: 'flex', borderBottom: '1px solid var(--os-border)', background: 'var(--os-surface-raised)' }}>
         {['profile', 'about', 'experience'].map((t) => (
@@ -40,15 +40,15 @@ export default function AboutApp() {
               # user-profile.config
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '140px 1fr', gap: '4px 16px' }}>
-              <span style={{ color: 'var(--os-purple)' }}>name:</span>
+              <span style={{ color: 'var(--os-purple)', fontFamily: "'JetBrains Mono', monospace" }}>name:</span>
               <span>{profile.name}</span>
-              <span style={{ color: 'var(--os-purple)' }}>role:</span>
+              <span style={{ color: 'var(--os-purple)', fontFamily: "'JetBrains Mono', monospace" }}>role:</span>
               <span>{profile.role}</span>
-              <span style={{ color: 'var(--os-purple)' }}>location:</span>
+              <span style={{ color: 'var(--os-purple)', fontFamily: "'JetBrains Mono', monospace" }}>location:</span>
               <span>{profile.location}</span>
-              <span style={{ color: 'var(--os-purple)' }}>education:</span>
+              <span style={{ color: 'var(--os-purple)', fontFamily: "'JetBrains Mono', monospace" }}>education:</span>
               <span>{profile.education}</span>
-              <span style={{ color: 'var(--os-purple)' }}>focus:</span>
+              <span style={{ color: 'var(--os-purple)', fontFamily: "'JetBrains Mono', monospace" }}>focus:</span>
               <span />
               {profile.focus.map((f, i) => (
                 <React.Fragment key={i}>

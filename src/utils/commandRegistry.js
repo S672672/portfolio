@@ -64,7 +64,7 @@ const commands = {
     sudo hire smith
 
   Keyboard shortcuts:
-    Ctrl/Cmd + T    Open terminal
+    Alt + T         Open terminal
     Ctrl/Cmd + K    Quick navigation
     Escape          Close window
     Arrow Up/Down   Navigate command history`;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FiUser, FiMenu } from 'react-icons/fi';
+import { FiUser, FiMenu, FiSearch } from 'react-icons/fi';
 
 export default function TopBar({ onOpenRecruiter, entryReady = true, onToggleFolders, foldersOpen, isMobile, isTablet }) {
   const [time, setTime] = useState(new Date());
@@ -20,7 +20,7 @@ export default function TopBar({ onOpenRecruiter, entryReady = true, onToggleFol
   return (
     <div className="os-topbar" style={{ opacity: entryReady ? 1 : 0, transition: 'opacity 0.4s ease-out' }}>
       {/* Left: Hamburger (mobile/tablet) + Brand + Quick View */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: showCompact ? 6 : 10 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: showCompact ? 6 : 12 }}>
         {/* Hamburger menu — mobile/tablet only */}
         {showCompact && (
           <button
@@ -39,29 +39,34 @@ export default function TopBar({ onOpenRecruiter, entryReady = true, onToggleFol
           </button>
         )}
 
+        {/* Brand — clean, minimal */}
         <span style={{
           fontWeight: 700,
           color: 'var(--os-accent)',
           letterSpacing: '1.5px',
           fontSize: showCompact ? 10 : 11,
-          fontFamily: "'SF Mono', monospace",
+          fontFamily: "'JetBrains Mono', monospace",
         }}>
           SMITH.BHATTARAI
         </span>
 
-        {/* Quick View — always visible */}
-        <span style={{ color: 'var(--os-text-faint)', fontSize: 11, opacity: 0.3 }}>│</span>
+        {/* Separator — only on desktop */}
+        {!showCompact && (
+          <span style={{ color: 'var(--os-text-faint)', fontSize: 11, opacity: 0.3 }}>│</span>
+        )}
+
+        {/* Quick View button */}
         <button
           onClick={onOpenRecruiter}
           style={{
             display: 'flex', alignItems: 'center', gap: 5,
-            background: 'rgba(90,169,255,0.06)',
-            border: '1px solid rgba(90,169,255,0.1)',
+            background: 'rgba(90,169,255,0.05)',
+            border: '1px solid rgba(90,169,255,0.08)',
             color: 'var(--os-text-secondary)',
             cursor: 'pointer',
             fontSize: 10,
             padding: showCompact ? '3px 7px' : '3px 10px',
-            borderRadius: 6,
+            borderRadius: 5,
             transition: 'all 0.2s',
             fontFamily: 'inherit',
             letterSpacing: '0.5px',
@@ -70,12 +75,12 @@ export default function TopBar({ onOpenRecruiter, entryReady = true, onToggleFol
           onMouseEnter={(e) => {
             e.currentTarget.style.color = 'var(--os-accent)';
             e.currentTarget.style.background = 'rgba(90,169,255,0.1)';
-            e.currentTarget.style.borderColor = 'rgba(90,169,255,0.2)';
+            e.currentTarget.style.borderColor = 'rgba(90,169,255,0.15)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.color = 'var(--os-text-secondary)';
-            e.currentTarget.style.background = 'rgba(90,169,255,0.06)';
-            e.currentTarget.style.borderColor = 'rgba(90,169,255,0.1)';
+            e.currentTarget.style.background = 'rgba(90,169,255,0.05)';
+            e.currentTarget.style.borderColor = 'rgba(90,169,255,0.08)';
           }}
         >
           <FiUser size={11} strokeWidth={1.5} />
@@ -83,19 +88,19 @@ export default function TopBar({ onOpenRecruiter, entryReady = true, onToggleFol
         </button>
       </div>
 
-      {/* Right: Clock + date (compact on mobile/tablet) */}
+      {/* Right: Clock + date */}
       <div style={{ display: 'flex', alignItems: 'center', gap: showCompact ? 8 : 14 }}>
         {showCompact && (
           <span style={{
             fontSize: 9, color: 'var(--os-text-dim)',
-            fontFamily: "'SF Mono', monospace",
+            fontFamily: "'JetBrains Mono', monospace",
             letterSpacing: '0.5px', fontWeight: 500,
           }}>
             {formatShortDate(time)}
           </span>
         )}
         <div style={{
-          fontFamily: "'SF Mono', monospace",
+          fontFamily: "'JetBrains Mono', monospace",
           fontSize: showCompact ? 10 : 11,
           color: 'var(--os-text-dim)',
           fontWeight: 500,

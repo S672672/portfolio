@@ -9,7 +9,9 @@ export default function RecruiterView({ onClose }) {
   const allSkills = Object.values(skillCategories).flatMap((c) => c.skills.map((s) => s.name));
 
   return (
-    <div className="recruiter-overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>
+    <div className="recruiter-overlay" onClick={(e) => e.target === e.currentTarget && onClose()}
+      style={{ background: 'rgba(8, 11, 18, 0.5)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)' }}
+    >
       <div className="recruiter-card os-scrollbar">
         {/* Close button */}
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: -8 }}>
@@ -37,11 +39,11 @@ export default function RecruiterView({ onClose }) {
         </div>
 
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: 32, marginTop: 8 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 32, marginTop: 8 }}>
           <img
             src="/smithimg.jpg"
             alt={profile.name}
-            style={{ width: 80, height: 80, borderRadius: '50%', objectFit: 'cover', border: '3px solid var(--os-accent)', marginBottom: 12 }}
+            style={{ width: 80, height: 80, borderRadius: '50%', objectFit: 'cover', border: '3px solid var(--os-accent)', marginBottom: 12, display: 'block', margin: '0 auto' }}
           />
           <h2 style={{ fontSize: 24, margin: 0, color: 'var(--os-text)' }}>{profile.name}</h2>
           <div style={{ color: 'var(--os-accent)', fontSize: 16, marginTop: 4 }}>{profile.role}</div>

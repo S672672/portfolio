@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { contactConfig, contactLinks } from '../../data/contact';
-import { FiGithub, FiLinkedin, FiFacebook, FiTwitter, FiInstagram } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiFacebook, FiTwitter, FiInstagram, FiMail } from 'react-icons/fi';
 
 const socialIcons = {
   github: FiGithub,
@@ -11,7 +11,7 @@ const socialIcons = {
 };
 
 export default function ContactApp() {
-  const [formState, setFormState] = useState('idle'); // idle, sending, success, error
+  const [formState, setFormState] = useState('idle');
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [progress, setProgress] = useState(0);
   const [resultMsg, setResultMsg] = useState('');
@@ -25,7 +25,6 @@ export default function ContactApp() {
     setFormState('sending');
     setProgress(0);
 
-    // Animate progress
     const progressInterval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -80,18 +79,41 @@ export default function ContactApp() {
     <div style={{ display: 'flex', height: '100%' }}>
       {/* Form section */}
       <div style={{ flex: 1, padding: 24, overflow: 'auto' }} className="os-scrollbar">
-        <div style={{ color: 'var(--os-text-dim)', fontFamily: 'monospace', fontSize: 12, marginBottom: 16 }}>
-          # NEW_CONNECTION
+        {/* CTA Header */}
+        <div style={{ marginBottom: 20 }}>
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12,
+          }}>
+            <FiMail size={14} color="var(--os-accent)" />
+            <span style={{
+              color: 'var(--os-text-dim)', fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 12, letterSpacing: '0.5px',
+            }}>
+              NEW_CONNECTION
+            </span>
+          </div>
+          <div style={{
+            fontSize: 18, fontWeight: 700, color: 'var(--os-text)',
+            fontFamily: 'Inter, sans-serif', marginBottom: 4,
+          }}>
+            Have a system worth building?
+          </div>
+          <div style={{
+            fontSize: 13, color: 'var(--os-text-secondary)',
+            fontFamily: 'Inter, sans-serif', lineHeight: 1.5,
+          }}>
+            Let's discuss architecture, infrastructure, or engineering challenges.
+          </div>
         </div>
 
         {formState === 'idle' && (
           <form onSubmit={handleSubmit}>
-            <div style={{ marginBottom: 12, fontFamily: 'monospace', fontSize: 13, color: 'var(--os-green)' }}>
-              $ establish_connection
-            </div>
-
-            <div style={{ marginBottom: 14 }}>
-              <label style={{ display: 'block', fontSize: 12, color: 'var(--os-purple)', marginBottom: 4, fontFamily: 'monospace' }}>
+            <div style={{ marginBottom: 16 }}>
+              <label style={{
+                display: 'block', fontSize: 11, color: 'var(--os-purple)',
+                marginBottom: 6, fontFamily: "'JetBrains Mono', monospace",
+                letterSpacing: '0.3px',
+              }}>
                 identity.name
               </label>
               <input
@@ -106,8 +128,12 @@ export default function ContactApp() {
               />
             </div>
 
-            <div style={{ marginBottom: 14 }}>
-              <label style={{ display: 'block', fontSize: 12, color: 'var(--os-purple)', marginBottom: 4, fontFamily: 'monospace' }}>
+            <div style={{ marginBottom: 16 }}>
+              <label style={{
+                display: 'block', fontSize: 11, color: 'var(--os-purple)',
+                marginBottom: 6, fontFamily: "'JetBrains Mono', monospace",
+                letterSpacing: '0.3px',
+              }}>
                 identity.email
               </label>
               <input
@@ -122,8 +148,12 @@ export default function ContactApp() {
               />
             </div>
 
-            <div style={{ marginBottom: 14 }}>
-              <label style={{ display: 'block', fontSize: 12, color: 'var(--os-purple)', marginBottom: 4, fontFamily: 'monospace' }}>
+            <div style={{ marginBottom: 16 }}>
+              <label style={{
+                display: 'block', fontSize: 11, color: 'var(--os-purple)',
+                marginBottom: 6, fontFamily: "'JetBrains Mono', monospace",
+                letterSpacing: '0.3px',
+              }}>
                 connection.subject
               </label>
               <input
@@ -137,8 +167,12 @@ export default function ContactApp() {
               />
             </div>
 
-            <div style={{ marginBottom: 18 }}>
-              <label style={{ display: 'block', fontSize: 12, color: 'var(--os-purple)', marginBottom: 4, fontFamily: 'monospace' }}>
+            <div style={{ marginBottom: 20 }}>
+              <label style={{
+                display: 'block', fontSize: 11, color: 'var(--os-purple)',
+                marginBottom: 6, fontFamily: "'JetBrains Mono', monospace",
+                letterSpacing: '0.3px',
+              }}>
                 message.payload
               </label>
               <textarea
@@ -157,18 +191,12 @@ export default function ContactApp() {
             <button
               type="submit"
               style={{
-                width: '100%',
-                padding: '12px 20px',
-                background: 'var(--os-accent)',
-                color: 'var(--os-bg)',
-                border: 'none',
-                borderRadius: 6,
-                fontSize: 13,
-                fontWeight: 600,
-                cursor: 'pointer',
-                fontFamily: 'monospace',
-                letterSpacing: '0.5px',
-                transition: 'all 0.2s',
+                width: '100%', padding: '12px 20px',
+                background: 'var(--os-accent)', color: 'var(--os-bg)',
+                border: 'none', borderRadius: 6,
+                fontSize: 13, fontWeight: 600, cursor: 'pointer',
+                fontFamily: "'JetBrains Mono', monospace",
+                letterSpacing: '0.5px', transition: 'all 0.2s',
               }}
               onMouseEnter={(e) => (e.target.style.opacity = '0.9')}
               onMouseLeave={(e) => (e.target.style.opacity = '1')}
@@ -180,28 +208,34 @@ export default function ContactApp() {
 
         {formState === 'sending' && (
           <div style={{ padding: '30px 0', textAlign: 'center' }}>
-            <div style={{ fontFamily: 'monospace', fontSize: 14, color: 'var(--os-text)', marginBottom: 16 }}>
+            <div style={{
+              fontFamily: "'JetBrains Mono', monospace", fontSize: 14,
+              color: 'var(--os-text)', marginBottom: 16,
+            }}>
               Initializing connection...
             </div>
-            <div style={{ background: 'var(--os-surface-raised)', borderRadius: 4, height: 24, overflow: 'hidden', marginBottom: 16 }}>
+            <div style={{
+              background: 'var(--os-surface-raised)', borderRadius: 4,
+              height: 24, overflow: 'hidden', marginBottom: 16,
+            }}>
               <div
                 style={{
-                  height: '100%',
-                  width: `${progress}%`,
+                  height: '100%', width: `${progress}%`,
                   background: 'linear-gradient(90deg, var(--os-accent-dim), var(--os-accent))',
                   transition: 'width 0.1s linear',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: 11,
-                  fontWeight: 600,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: 11, fontWeight: 600,
                   color: progress > 30 ? 'white' : 'var(--os-accent)',
+                  fontFamily: "'JetBrains Mono', monospace",
                 }}
               >
                 {progress}%
               </div>
             </div>
-            <div style={{ fontFamily: 'monospace', fontSize: 12, color: 'var(--os-text-muted)', textAlign: 'left' }}>
+            <div style={{
+              fontFamily: "'JetBrains Mono', monospace", fontSize: 12,
+              color: 'var(--os-text-muted)', textAlign: 'left',
+            }}>
               {progress > 20 && <div style={{ color: 'var(--os-green)' }}>✓ Identity verified</div>}
               {progress > 50 && <div style={{ color: 'var(--os-green)' }}>✓ Message packaged</div>}
               {progress > 80 && <div style={{ color: 'var(--os-green)' }}>✓ Connection established</div>}
@@ -212,23 +246,25 @@ export default function ContactApp() {
         {formState === 'success' && (
           <div style={{ padding: '30px 0', textAlign: 'center' }}>
             <div style={{ fontSize: 36, marginBottom: 12 }}>✓</div>
-            <div style={{ fontFamily: 'monospace', fontSize: 14, color: 'var(--os-success)', marginBottom: 8 }}>
+            <div style={{
+              fontFamily: "'JetBrains Mono', monospace", fontSize: 14,
+              color: 'var(--os-success)', marginBottom: 8,
+            }}>
               {resultMsg}
             </div>
-            <div style={{ fontSize: 13, color: 'var(--os-text-muted)', marginBottom: 20 }}>
+            <div style={{
+              fontSize: 13, color: 'var(--os-text-muted)', marginBottom: 20,
+              fontFamily: 'Inter, sans-serif',
+            }}>
               Thank you for reaching out. I will get back to you soon.
             </div>
             <button
               onClick={resetForm}
               style={{
-                padding: '8px 20px',
-                background: 'transparent',
+                padding: '8px 20px', background: 'transparent',
                 border: '1px solid var(--os-border)',
-                color: 'var(--os-text-muted)',
-                borderRadius: 6,
-                cursor: 'pointer',
-                fontSize: 12,
-                fontFamily: 'inherit',
+                color: 'var(--os-text-muted)', borderRadius: 6,
+                cursor: 'pointer', fontSize: 12, fontFamily: 'Inter, sans-serif',
                 transition: 'all 0.15s',
               }}
               onMouseEnter={(e) => { e.target.style.borderColor = 'var(--os-accent)'; e.target.style.color = 'var(--os-accent)'; }}
@@ -242,20 +278,19 @@ export default function ContactApp() {
         {formState === 'error' && (
           <div style={{ padding: '30px 0', textAlign: 'center' }}>
             <div style={{ fontSize: 36, marginBottom: 12 }}>✕</div>
-            <div style={{ fontFamily: 'monospace', fontSize: 14, color: 'var(--os-error)', marginBottom: 8 }}>
+            <div style={{
+              fontFamily: "'JetBrains Mono', monospace", fontSize: 14,
+              color: 'var(--os-error)', marginBottom: 8,
+            }}>
               {resultMsg}
             </div>
             <button
               onClick={resetForm}
               style={{
-                padding: '8px 20px',
-                background: 'transparent',
+                padding: '8px 20px', background: 'transparent',
                 border: '1px solid var(--os-border)',
-                color: 'var(--os-text-muted)',
-                borderRadius: 6,
-                cursor: 'pointer',
-                fontSize: 12,
-                fontFamily: 'inherit',
+                color: 'var(--os-text-muted)', borderRadius: 6,
+                cursor: 'pointer', fontSize: 12, fontFamily: 'Inter, sans-serif',
                 transition: 'all 0.15s',
               }}
               onMouseEnter={(e) => { e.target.style.borderColor = 'var(--os-accent)'; e.target.style.color = 'var(--os-accent)'; }}
@@ -274,13 +309,16 @@ export default function ContactApp() {
           borderLeft: '1px solid var(--os-border)',
           background: 'var(--os-surface-raised)',
           padding: 20,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 8,
+          display: 'flex', flexDirection: 'column', gap: 8,
         }}
       >
-        <div style={{ fontSize: 11, color: 'var(--os-text-dim)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 8 }}>
-          Social Links
+        <div style={{
+          fontSize: 10, color: 'var(--os-text-dim)',
+          textTransform: 'uppercase', letterSpacing: '1px',
+          marginBottom: 8,
+          fontFamily: "'JetBrains Mono', monospace",
+        }}>
+          Connect
         </div>
         {Object.entries(contactLinks).map(([platform, url]) => {
           const Icon = socialIcons[platform];
@@ -291,16 +329,11 @@ export default function ContactApp() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 8,
-                padding: '8px 10px',
-                color: 'var(--os-text-muted)',
-                textDecoration: 'none',
-                fontSize: 12,
-                borderRadius: 6,
-                transition: 'all 0.15s',
-                textTransform: 'capitalize',
+                display: 'flex', alignItems: 'center', gap: 8,
+                padding: '8px 10px', color: 'var(--os-text-muted)',
+                textDecoration: 'none', fontSize: 12, borderRadius: 6,
+                transition: 'all 0.15s', textTransform: 'capitalize',
+                fontFamily: 'Inter, sans-serif',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'rgba(56,189,248,0.08)';
