@@ -84,6 +84,27 @@ export function useWindowManager() {
     );
   }, []);
 
+  // Resize & reposition all windows when viewport changes (e.g. DevTools toggle)
+  const resizeAllWindows = useCallback(() => {
+    const isMobile = isMobileDevice();
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    setWindows((prev) =>
+      prev.map((w) => {
+        if (isMobile) {
+          // Mobile: fullscreen fixed (CSS handles this via media query)
+          return { ...w, x: 0, y: 0, width: vw, height: vh - 84, maximized: false };
+        }
+        // Desktop: re-center and resize to reasonable desktop dimensions
+        const nw = Math.min(750, vw - 100);
+        const nh = Math.min(550, vh - 150);
+        const nx = Math.max(20, (vw - nw) / 2);
+        const ny = Math.max(40, (vh - nh) / 2);
+        return { ...w, x: nx, y: ny, width: nw, height: nh, maximized: false };
+      })
+    );
+  }, []);
+
   return {
     windows,
     openWindow,
@@ -92,5 +113,6 @@ export function useWindowManager() {
     toggleMaximize,
     focusWindow,
     moveWindow,
+    resizeAllWindows,
   };
 }

@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo, useEffect } from 'react';
+import React, { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import { useWindowManager } from '../hooks/useWindowManager';
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts';
 import { useIsMobile, useIsTablet } from '../hooks/useIsMobile';
@@ -45,11 +45,20 @@ const allApps = [
 ];
 
 export default function Desktop() {
-  const { windows, openWindow, closeWindow, minimizeWindow, toggleMaximize, focusWindow, moveWindow } = useWindowManager();
+  const { windows, openWindow, closeWindow, minimizeWindow, toggleMaximize, focusWindow, moveWindow, resizeAllWindows } = useWindowManager();
   const [showRecruiter, setShowRecruiter] = useState(false);
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
   const showCompact = isMobile || isTablet;
+
+  // When viewport crosses mobile/desktop breakpoint, adapt all open windows
+  const prevIsMobile = useRef(isMobile);
+  useEffect(() => {
+    if (prevIsMobile.current !== isMobile && windows.length > 0) {
+      resizeAllWindows();
+    }
+    prevIsMobile.current = isMobile;
+  }, [isMobile, windows.length, resizeAllWindows]);
   const [sessionStart] = useState(() => Date.now());
   const [foldersOpen, setFoldersOpen] = useState(false);
   const [entryPhase, setEntryPhase] = useState(0);

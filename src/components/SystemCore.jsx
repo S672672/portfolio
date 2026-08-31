@@ -365,7 +365,7 @@ export default function SystemCore({ onOpenApp }) {
     };
   }, [isMobile]);
 
-  const photoRadius = isMobile ? 42 : isTablet ? 48 : 54;
+  const photoRadius = isMobile ? 54 : isTablet ? 58 : 66;
   const photoDiameter = photoRadius * 2;
   // Ring container is photo + gap + ring thickness
   const ringOuter = photoRadius + 20;

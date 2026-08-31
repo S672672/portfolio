@@ -5,7 +5,7 @@ function getGreeting(hour) {
   if (hour < 12) return { text: 'Good morning', emoji: '☀️' };
   if (hour < 17) return { text: 'Good afternoon', emoji: '🌤️' };
   if (hour < 21) return { text: 'Good evening', emoji: '🌆' };
-  return { text: 'Working late', emoji: '🦉' };
+  return { text: 'Working late, Mate?', emoji: '🦉' };
 }
 
 function getCalendarData(year, month) {

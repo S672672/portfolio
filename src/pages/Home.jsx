@@ -13,9 +13,9 @@ import AOS from "aos";
 export default function Home() {
   useEffect(() => {
     AOS.init({
-      duration: 2000, // Default duration for animations
-      easing: "ease-out-back", // You can tweak the easing function here
-      once: true, // Trigger the animation only once
+      duration: 2000,
+      easing: "ease-out-back", 
+      once: true, 
     });
   }, []);
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { contactConfig, contactLinks } from '../../data/contact';
+import { useIsMobile } from '../../hooks/useIsMobile';
 import { FiGithub, FiLinkedin, FiFacebook, FiTwitter, FiInstagram, FiMail } from 'react-icons/fi';
 
 const socialIcons = {
@@ -11,6 +12,7 @@ const socialIcons = {
 };
 
 export default function ContactApp() {
+  const isMobile = useIsMobile();
   const [formState, setFormState] = useState('idle');
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [progress, setProgress] = useState(0);
@@ -76,7 +78,7 @@ export default function ContactApp() {
   };
 
   return (
-    <div style={{ display: 'flex', height: '100%' }}>
+    <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', height: '100%' }}>
       {/* Form section */}
       <div style={{ flex: 1, padding: 24, overflow: 'auto' }} className="os-scrollbar">
         {/* CTA Header */}
@@ -302,14 +304,19 @@ export default function ContactApp() {
         )}
       </div>
 
-      {/* Social links sidebar */}
+      {/* Social links */}
       <div
         style={{
-          width: 180,
-          borderLeft: '1px solid var(--os-border)',
+          width: isMobile ? '100%' : 180,
+          borderLeft: isMobile ? 'none' : '1px solid var(--os-border)',
+          borderTop: isMobile ? '1px solid var(--os-border)' : 'none',
           background: 'var(--os-surface-raised)',
-          padding: 20,
-          display: 'flex', flexDirection: 'column', gap: 8,
+          padding: isMobile ? '16px 20px' : 20,
+          display: 'flex', flexDirection: isMobile ? 'row' : 'column',
+          gap: isMobile ? 12 : 8,
+          flexWrap: 'wrap',
+          alignItems: isMobile ? 'center' : 'flex-start',
+          justifyContent: isMobile ? 'center' : 'flex-start',
         }}
       >
         <div style={{
@@ -318,7 +325,7 @@ export default function ContactApp() {
           marginBottom: 8,
           fontFamily: "'JetBrains Mono', monospace",
         }}>
-          Connect
+          {isMobile ? 'CONNECT' : 'Connect'}
         </div>
         {Object.entries(contactLinks).map(([platform, url]) => {
           const Icon = socialIcons[platform];
@@ -329,23 +336,28 @@ export default function ContactApp() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                display: 'flex', alignItems: 'center', gap: 8,
-                padding: '8px 10px', color: 'var(--os-text-muted)',
+                display: 'flex', alignItems: 'center', gap: isMobile ? 0 : 8,
+                padding: isMobile ? '10px' : '8px 10px',
+                color: 'var(--os-text-muted)',
                 textDecoration: 'none', fontSize: 12, borderRadius: 6,
-                transition: 'all 0.15s', textTransform: 'capitalize',
+                transition: 'all 0.15s',
+                textTransform: isMobile ? 'none' : 'capitalize',
                 fontFamily: 'Inter, sans-serif',
+                background: isMobile ? 'rgba(56,189,248,0.05)' : 'transparent',
+                border: isMobile ? '1px solid var(--os-border)' : 'none',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'rgba(56,189,248,0.08)';
                 e.currentTarget.style.color = 'var(--os-accent)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.background = isMobile ? 'rgba(56,189,248,0.05)' : 'transparent';
                 e.currentTarget.style.color = 'var(--os-text-muted)';
               }}
+              title={platform}
             >
-              {Icon && <Icon size={14} />}
-              {platform}
+              {Icon && <Icon size={16} />}
+              {!isMobile && platform}
             </a>
           );
         })}

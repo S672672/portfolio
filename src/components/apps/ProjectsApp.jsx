@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { projects } from '../../data/projects';
+import { useIsMobile } from '../../hooks/useIsMobile';
 import { FiFolder, FiFileText, FiGithub, FiExternalLink, FiArrowLeft } from 'react-icons/fi';
 
 export default function ProjectsApp() {
@@ -7,6 +8,7 @@ export default function ProjectsApp() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [viewMode, setViewMode] = useState('normal');
   const [expandedLayer, setExpandedLayer] = useState(null);
+  const isMobile = useIsMobile();
 
   const files = selectedProject
     ? [
@@ -213,15 +215,19 @@ export default function ProjectsApp() {
     );
   };
 
+  const sidebarWidth = isMobile ? 140 : 220;
+
   return (
     <div style={{ display: 'flex', height: '100%' }}>
-      {/* Sidebar - file list */}
+      {/* Sidebar - always visible, responsive width */}
       <div
         style={{
-          width: 220,
+          width: sidebarWidth,
+          minWidth: sidebarWidth,
           borderRight: '1px solid var(--os-border)',
           background: 'var(--os-surface-raised)',
           display: 'flex', flexDirection: 'column', overflow: 'hidden',
+          flexShrink: 0,
         }}
       >
         {/* Breadcrumb */}
@@ -246,16 +252,17 @@ export default function ProjectsApp() {
         </div>
 
         {/* File list */}
-        <div style={{ flex: 1, overflow: 'auto', padding: 6 }} className="os-scrollbar">
+        <div style={{ flex: 1, overflow: 'auto', padding: isMobile ? 4 : 6 }} className="os-scrollbar">
           {!selectedProject
             ? projects.map((p) => (
                 <div
                   key={p.id}
                   className="file-item"
                   onClick={() => setSelectedProject(p)}
+                  style={{ padding: isMobile ? '8px 6px' : undefined }}
                 >
-                  <FiFolder size={16} color="var(--os-accent)" />
-                  <span style={{ fontSize: 13, fontFamily: 'Inter, sans-serif' }}>{p.folder}</span>
+                  <FiFolder size={isMobile ? 13 : 16} color="var(--os-accent)" />
+                  <span style={{ fontSize: isMobile ? 11 : 13, fontFamily: 'Inter, sans-serif' }}>{p.folder}</span>
                 </div>
               ))
             : files.map((f) => (
@@ -263,15 +270,16 @@ export default function ProjectsApp() {
                   key={f.id}
                   className={`file-item ${selectedFile === f.id ? 'active' : ''}`}
                   onClick={() => setSelectedFile(f.id)}
+                  style={{ padding: isMobile ? '8px 6px' : undefined }}
                 >
-                  <FiFileText size={14} color="var(--os-text-muted)" />
-                  <span style={{ fontSize: 13, fontFamily: 'Inter, sans-serif' }}>{f.name}</span>
+                  <FiFileText size={isMobile ? 12 : 14} color="var(--os-text-muted)" />
+                  <span style={{ fontSize: isMobile ? 11 : 13, fontFamily: 'Inter, sans-serif' }}>{f.name}</span>
                 </div>
               ))}
         </div>
 
         {/* Links */}
-        {selectedProject && (
+        {selectedProject && !isMobile && (
           <div style={{ padding: 8, borderTop: '1px solid var(--os-border)', display: 'flex', flexDirection: 'column', gap: 4 }}>
             {selectedProject.github && (
               <a
@@ -312,10 +320,10 @@ export default function ProjectsApp() {
       </div>
 
       {/* Main content */}
-      <div style={{ flex: 1, overflow: 'auto', padding: 20 }} className="os-scrollbar">
+      <div style={{ flex: 1, overflow: 'auto', padding: isMobile ? 10 : 20, minWidth: 0 }} className="os-scrollbar">
         {!selectedProject && !selectedFile && (
           <div style={{
-            color: 'var(--os-text-dim)', textAlign: 'center', marginTop: 60, fontSize: 14,
+            color: 'var(--os-text-dim)', textAlign: 'center', marginTop: isMobile ? 20 : 60, fontSize: 14,
             fontFamily: 'Inter, sans-serif',
           }}>
             <FiFolder size={32} style={{ marginBottom: 12, opacity: 0.3 }} />
@@ -397,10 +405,10 @@ export default function ProjectsApp() {
             </div>
 
             <div style={{
-              color: 'var(--os-text-dim)', fontSize: 13,
+              color: 'var(--os-text-dim)', fontSize: isMobile ? 12 : 13,
               fontFamily: 'Inter, sans-serif',
             }}>
-              ← Select a file from the sidebar to view its contents
+              ← Select a file from the sidebar
             </div>
           </div>
         )}
