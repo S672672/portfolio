@@ -777,8 +777,8 @@ export default function SystemCore({ onOpenApp }) {
           <div
             style={{
               display: "flex",
-              gap: 16,
-              marginTop: 20,
+              gap: 12,
+              marginTop: 12,
               justifyContent: "center",
               fontSize: 10,
               fontFamily: "'JetBrains Mono', monospace",

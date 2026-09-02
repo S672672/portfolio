@@ -1,5 +1,261 @@
 export const projects = [
   {
+  id: "deep-packet-inspection",
+
+  title: "Deep Packet Inspection & Network Intelligence Platform",
+
+  folder: "DeepPacketInspection",
+
+  image: "./dpiconsole.png",
+
+  github: "https://github.com/S672672/Deep-Packet-Inspection",
+
+  live: "https://dpi-console-duxl.onrender.com/policies",
+
+  readme: {
+
+    overview:
+      "A network security and traffic intelligence platform that analyzes real PCAP traffic at packet and flow level to identify protocols, applications, domains, TLS SNI, network relationships, suspicious behavior, and policy violations. Built with a high-performance packet analysis engine and an interactive Next.js security dashboard.",
+
+    problem:
+      "Raw packet captures contain large amounts of low-level network data that are difficult to interpret manually. Security and network engineers need a way to move from individual packets to meaningful flows, applications, domains, threats, and architectural relationships while understanding how traffic behaves across the network.",
+
+    interesting:
+      "Instead of treating a PCAP as a collection of packets, the platform reconstructs network activity into flows and higher-level intelligence. It combines packet parsing, connection tracking, TLS SNI and HTTP analysis, DNS inspection, application fingerprinting, policy evaluation, anomaly detection, and risk scoring to turn raw traffic into an interactive security investigation environment.",
+
+    contribution:
+      "Designed and developed the packet-processing engine, PCAP analysis pipeline, protocol parsers, bidirectional flow tracking, TLS/SNI and HTTP inspection, DNS analysis, application detection, policy engine, traffic statistics, threat detection, risk scoring, topology generation, timeline analysis, and the Next.js-based network security dashboard.",
+
+  },
+
+  technologies: [
+
+    "Node.js",
+    "TypeScript",
+    "Next.js",
+    "React",
+    "PCAP",
+    "TCP/IP",
+    "TLS",
+    "DNS",
+    "HTTP",
+    "Worker Threads",
+    "Buffer / Stream Processing"
+
+  ],
+
+  highlights: [
+
+    "Real PCAP packet analysis",
+
+    "Ethernet, IPv4/IPv6, TCP and UDP parsing",
+
+    "Five-tuple bidirectional flow tracking",
+
+    "TCP connection and flow analysis",
+
+    "TLS ClientHello and SNI extraction",
+
+    "HTTP Host and request analysis",
+
+    "DNS query and response analysis",
+
+    "Application and protocol fingerprinting",
+
+    "IP, domain, and application-based policy enforcement",
+
+    "Forwarded and dropped packet analysis",
+
+    "Output PCAP generation",
+
+    "Network traffic statistics and flow analytics",
+
+    "Suspicious traffic and anomaly detection",
+
+    "Explainable network risk scoring",
+
+    "Network topology reconstruction",
+
+    "Traffic timeline and incident analysis",
+
+    "Policy impact simulation",
+
+    "PCAP comparison and traffic investigation",
+
+    "Interactive network security dashboard"
+
+  ],
+
+  challenges: [
+
+    {
+      challenge:
+        "Reimplementing a low-level packet inspection engine without relying on the original native backend",
+
+      approach:
+        "Reimplemented the packet-processing pipeline in Node.js and TypeScript using Buffer-based binary parsing, modular protocol parsers, streaming PCAP processing, and strongly typed network models while preserving the behavior of the original DPI implementation."
+    },
+
+    {
+      challenge:
+        "Tracking network connections across both directions of a flow",
+
+      approach:
+        "Implemented normalized five-tuple flow identification so packets traveling in opposite directions are associated with the same logical connection, allowing the engine to maintain application, protocol, byte, packet, and security state at flow level."
+    },
+
+    {
+      challenge:
+        "Extracting useful application information from encrypted traffic",
+
+      approach:
+        "Implemented TLS ClientHello inspection and SNI extraction without decrypting HTTPS traffic, combined with HTTP Host and DNS analysis to identify domains and applications from available network metadata."
+    },
+
+    {
+      challenge:
+        "Turning raw packet data into meaningful security intelligence",
+
+      approach:
+        "Built higher-level analysis layers on top of packet and flow data to identify suspicious connection patterns, DNS anomalies, unusual traffic behavior, and other indicators, with explainable risk scores based on observable evidence."
+    },
+
+    {
+      challenge:
+        "Applying network policies to real traffic rather than simulated results",
+
+      approach:
+        "Implemented policy evaluation for application, domain, and IP-based rules and connected policy decisions directly to flow state so packets are classified as allowed or blocked according to the actual analyzed traffic."
+    },
+
+    {
+      challenge:
+        "Making large PCAP analysis practical in a JavaScript runtime",
+
+      approach:
+        "Used Buffer-based binary processing, streaming techniques, bounded state, and worker-based processing where appropriate to avoid unnecessary memory usage while maintaining consistent flow state."
+    },
+
+    {
+      challenge:
+        "Presenting complex network data in a form useful for investigation",
+
+      approach:
+        "Built an interactive Next.js dashboard that transforms packet-level results into flows, applications, domains, threats, risk scores, timelines, and network topology so users can investigate traffic from multiple levels of abstraction."
+    }
+
+  ],
+
+  learned: [
+
+    "Deep Packet Inspection concepts",
+
+    "PCAP file format and binary packet processing",
+
+    "TCP/IP protocol analysis",
+
+    "Network flow modeling and five-tuple tracking",
+
+    "TLS ClientHello and SNI inspection",
+
+    "DNS and HTTP protocol analysis",
+
+    "Application fingerprinting",
+
+    "Network policy enforcement",
+
+    "Traffic anomaly detection",
+
+    "Network security risk scoring",
+
+    "Graph-based network topology analysis",
+
+    "Streaming and memory-efficient processing in Node.js",
+
+    "Worker-based parallel processing",
+
+    "Building security investigation interfaces",
+
+    "Designing systems around real network infrastructure problems"
+
+  ],
+
+  architecture: [
+
+    {
+      layer: "Presentation",
+      tech: "Next.js / React / TypeScript",
+      description:
+        "Interactive network security dashboard for uploading PCAPs, exploring traffic, investigating flows, reviewing threats, visualizing topology, and analyzing network behavior."
+    },
+
+    {
+      layer: "API / Application Layer",
+      tech: "Node.js / TypeScript",
+      description:
+        "Handles PCAP uploads, analysis requests, policy configuration, result generation, and communication between the frontend and the DPI engine."
+    },
+
+    {
+      layer: "PCAP Processing",
+      tech: "Node.js Buffers / Streams",
+      description:
+        "Reads real PCAP files, processes packet records, preserves timestamps and raw packet data, and generates filtered PCAP output where required."
+    },
+
+    {
+      layer: "Packet Analysis",
+      tech: "TypeScript / TCP/IP",
+      description:
+        "Parses Ethernet, IP, TCP, and UDP headers and extracts packet-level metadata required for higher-level traffic analysis."
+    },
+
+    {
+      layer: "Flow Engine",
+      tech: "TypeScript / Five-Tuple Tracking",
+      description:
+        "Groups packets into bidirectional network flows and maintains connection state, packet counts, byte counts, applications, domains, and security metadata."
+    },
+
+    {
+      layer: "Protocol Intelligence",
+      tech: "TLS / HTTP / DNS",
+      description:
+        "Inspects protocol metadata to extract TLS SNI, HTTP Host information, DNS queries, domains, and other application-level indicators without decrypting HTTPS."
+    },
+
+    {
+      layer: "DPI Engine",
+      tech: "TypeScript",
+      description:
+        "Combines packet, flow, and protocol information to classify applications, identify traffic patterns, and generate structured network intelligence."
+    },
+
+    {
+      layer: "Policy Engine",
+      tech: "TypeScript",
+      description:
+        "Evaluates IP, domain, and application rules against analyzed traffic and determines whether flows should be allowed or blocked."
+    },
+
+    {
+      layer: "Security Intelligence",
+      tech: "TypeScript",
+      description:
+        "Analyzes traffic behavior for suspicious patterns, DNS anomalies, scanning activity, and other indicators while producing explainable risk assessments."
+    },
+
+    {
+      layer: "Topology & Timeline",
+      tech: "Graph Algorithms / TypeScript",
+      description:
+        "Transforms observed communication relationships and packet timestamps into network topology graphs and chronological traffic events for investigation."
+    }
+
+  ],
+
+},
+  {
   id: "netverge",
 
   title: "NetVerge",
